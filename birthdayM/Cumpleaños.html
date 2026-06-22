@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Cumpleaños, Mi Amor 🦊</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet"/>
+  
+  <style>
+    /* ── TOKENS (Paleta del Menu) ── */
+    :root {
+      --cream:#fdf6ee;
+      --blush:#f2c4c4;
+      --rose:#d4768a;
+      --rose-deep:#a84f65;
+      --rose-pale:#fbe8ec;
+      --gold:#c49a56;
+      --gold-light:#e8d4a8;
+      --fox:#e8874a;
+      --ink:#2d1f1f;
+      --ink-soft:#5a4242;
+      --ink-muted:#b09090;
+      --white:#ffffff;
+      --shadow-rose:rgba(212,118,138,0.18);
+      --glass-bg: rgba(255, 255, 255, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.5);
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      font-family: 'Jost', sans-serif;
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ── PARTICLES CANVAS ── */
+    #particles {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    }
+
+    /* ── HEADER CON EFECTO CINEMÁTICO MEJORADO ── */
+    .hero {
+      position: relative;
+      text-align: center;
+      padding: 0;
+      overflow: hidden;
+      background: #1a0a10;
+    }
+
+    .video-banner {
+      position: relative;
+      width: 100%;
+      height: 85vh; /* Aumentado para mayor impacto visual */
+      min-height: 600px;
+      overflow: hidden;
+    }
+
+    .video-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      animation: kenBurns 25s ease-in-out infinite alternate;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(45, 31, 31, 0.2), rgba(26, 10, 16, 0.8));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+      width: 100%;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.9rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.3s forwards;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--white);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.5s forwards;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+      display: block;
+      font-weight: 500;
+      margin-top: 0.2em;
+    }
+
+    .hero-subtitle {
+      margin-top: 1.5rem;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--cream);
+      opacity: 0;
+      animation: fadeUp 0.9s 0.75s forwards;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-divider {
+      margin: 2.5rem auto 0;
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0;
+      animation: fadeUp 0.8s 1s forwards;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      opacity: 0.8;
+      animation: bob 2s 1.5s infinite;
+      z-index: 3;
+    }
+
+    /* ── BOTÓN DE REGRESO ── */
+    .back-button {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      z-index: 1000;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      border-radius: 50px;
+      padding: 0.8rem 1.5rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    .back-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      background: var(--white);
+    }
+
+    .back-button::before {
+      content: '←';
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    /* ── MODAL PARA TARJETAS BLOQUEADAS ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-content {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 3rem;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .modal-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--ink);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .modal-text {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.1rem;
+      color: var(--ink-soft);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .modal-button {
+      background: var(--rose);
+      color: var(--white);
+      border: none;
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-family: 'Jost', sans-serif;
+      font-weight: 500;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .modal-button:hover {
+      background: var(--rose-deep);
+      transform: translateY(-2px);
+    }
+
+    /* ── SECTIONS ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+    }
+
+    section {
+      position: relative; 
+      z-index: 1; 
+      padding: 7rem 1.5rem;
+      max-width: 1100px; /* Aumentado para videos más grandes */
+      margin: 0 auto; 
+      text-align: center;
+    }
+
+    .section-label {
+      font-size: 0.85rem; 
+      letter-spacing: 0.4em; 
+      text-transform: uppercase;
+      color: var(--gold); 
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 600; 
+      color: var(--ink); 
+      margin-bottom: 3rem; 
+      line-height: 1.2;
+    }
+    
+    .section-title em { 
+      font-style: italic; 
+      color: var(--rose); 
+    }
+
+    /* ── VIDEO CONTAINERS ── */
+    .video-container {
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      margin-top: 2rem;
+      background: var(--glass-bg); 
+      padding: 2.5rem 2rem; 
+      border-radius: 24px;
+      border: 1px solid var(--glass-border); 
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 25px 50px var(--shadow-rose);
+      transition: transform 0.3s ease;
+      max-width: 950px; /* Ampliado */
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .video-container:hover {
+      transform: translateY(-5px);
+    }
+
+    .video-container video {
+      width: 100%; 
+      max-width: 950px; /* Tamaño aumentado para mejor visualización */
+      height: auto; /* Altura automática para mantener proporciones */
+      aspect-ratio: 16/9; /* Forzar relación 16:9 */
+      object-fit: contain; /* Muestra el video completo sin recortar */
+      border-radius: 12px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15); 
+      outline: none;
+      background: var(--ink);
+    }
+
+    .video-caption {
+      margin-top: 2rem; 
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.4rem); 
+      color: var(--ink-soft);
+      font-style: italic; 
+      max-width: 700px; 
+      line-height: 1.5;
+    }
+
+    /* ── LETTER CON IMAGENES POLAROID ── */
+    .letter-wrap {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px); 
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--white); 
+      border-radius: 24px;
+      padding: clamp(3rem, 6vw, 5rem); 
+      position: relative; 
+      overflow: hidden;
+      box-shadow: 0 20px 50px var(--shadow-rose); 
+      text-align: left;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .letter-wrap::before {
+      content: '❝'; 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 12rem;
+      position: absolute; 
+      top: -3rem; 
+      left: 1rem; 
+      color: var(--rose);
+      opacity: 0.08; 
+      line-height: 1;
+    }
+
+    .letter-date {
+      font-size: 0.85rem; 
+      letter-spacing: 0.25em; 
+      color: var(--gold);
+      margin-bottom: 2.5rem; 
+      text-transform: uppercase; 
+      font-weight: 700;
+    }
+
+    .letter-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .letter-body {
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+      line-height: 1.9; 
+      color: var(--ink); 
+      font-style: italic;
+      width: 100%;
+    }
+
+    .letter-body p { margin-bottom: 1.5em; text-align: justify; }
+    .letter-body p:last-child { margin-bottom: 0; }
+
+    /* Estilo Polaroid con nombres */
+    .letter-images {
+      display: flex;
+      flex-direction: row;
+      gap: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .polaroid {
+      background: #fff;
+      padding: 12px 12px 0 12px; /* Espacio para que quepa la foto y el texto abajo */
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      border-radius: 4px;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      max-width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .polaroid-text {
+      margin-top: 15px;
+      margin-bottom: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 1.4rem;
+      color: var(--ink);
+    }
+
+    .polaroid:nth-child(1) { transform: rotate(-4deg); }
+    .polaroid:nth-child(2) { transform: rotate(3deg); }
+
+    .polaroid:hover {
+      transform: scale(1.08) rotate(0deg);
+      z-index: 10;
+    }
+
+    .fox-quote {
+      margin-top: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--rose-deep);
+      text-align: center;
+      width: 100%;
+    }
+
+    .letter-signature {
+      margin-top: 4rem; 
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; 
+      color: var(--rose-deep); 
+      text-align: right;
+      border-top: 1px solid var(--rose-pale);
+      padding-top: 2rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative; 
+      z-index: 1; 
+      text-align: center; 
+      padding: 4rem 1.5rem 3rem;
+      color: var(--ink-soft); 
+      font-size: 0.9rem; 
+      letter-spacing: 0.1em;
+      background: linear-gradient(to top, var(--rose-pale), transparent);
+      margin-top: 4rem;
+    }
+    
+    footer .hearts {
+      font-size: 1.8rem; 
+      display: block; 
+      margin-bottom: 1rem; 
+      letter-spacing: 0.5rem; 
+      color: var(--rose);
+      animation: pulse 2s infinite;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(8px); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.15); }
+    }
+
+    /* ── REVEAL ON SCROLL ── */
+    .reveal {
+      opacity: 0; 
+      transform: translateY(40px); 
+      transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hero-content { padding: 2rem 1.5rem; }
+      .video-banner { height: 75vh; }
+      section { padding: 5rem 1rem; }
+      .section-title { margin-bottom: 2.5rem; }
+      .letter-wrap { padding: 3rem 1.5rem; }
+      .letter-body { text-align: left; }
+      .polaroid { max-width: 170px; }
+      .polaroid img { height: 160px; }
+      .video-container { padding: 1.5rem 1rem; }
+      .video-container video {
+        height: auto; /* Altura automática */
+        aspect-ratio: 16/9; /* Mantener relación */
+      }
+      .back-button {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+      }
+      .modal-content {
+        margin: 1rem;
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: clamp(2.8rem, 10vw, 3.5rem); }
+      section { padding: 4rem 1rem; }
+      .polaroid { max-width: 140px; }
+      .polaroid img { height: 130px; }
+      .polaroid-text { font-size: 1.2rem; }
+      .letter-images { gap: 1rem; }
+      .video-container video {
+        height: auto; /* Altura automática */
+        aspect-ratio: 16/9; /* Mantener relación */
+      }
+      .back-button {
+        top: 0.5rem;
+        left: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+      }
+      .modal-content {
+        margin: 0.5rem;
+        padding: 1.5rem;
+      }
+      .modal-title {
+        font-size: 1.5rem;
+      }
+      .modal-text {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- Botón de regreso -->
+<a href="../menu_adi_v2.html" class="back-button">Regresar</a>
+
+<!-- Modal para tarjetas bloqueadas -->
+<div class="modal-overlay" id="blockedModal">
+  <div class="modal-content">
+    <div class="modal-icon">🚧</div>
+    <h2 class="modal-title">Estamos trabajando en ello</h2>
+    <p class="modal-text">Esta sección está en construcción. Muy pronto podrás disfrutar de nuevo contenido especial.</p>
+    <button class="modal-button" onclick="closeModal()">Entendido</button>
+  </div>
+</div>
+
+<header class="hero" aria-label="Encabezado">
+  <div class="video-banner">
+    <img src="header cumpleaños.jpg" alt="Fondo romántico">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Un día muy especial ✦ Feliz Cumpleaños</p>
+      <h1 class="hero-title">
+        Para ti,<br>
+        <em>mi amor</em>
+      </h1>
+      <p class="hero-subtitle">Hoy celebramos cada momento que hemos vivido juntos 🦊</p>
+      <div class="hero-divider"></div>
+    </div>
+    <span class="scroll-hint">↓ &nbsp; sigue leyendo &nbsp; ↓</span>
+  </div>
+</header>
+
+<div class="page">
+
+<section aria-labelledby="video-title">
+  <p class="section-label reveal">Nuestros momentos</p>
+  <h2 class="section-title reveal" id="video-title">Porque solo bastaron 5 minutos para entender que te quería <em>toda la vida</em></h2>
+
+  <div class="video-container reveal">
+    <video controls playsinline poster="poster_cumpleaños.jpg">
+      <source src="CumpleMort.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+    <p class="video-caption reveal">
+      Si nuestra vida se ve así cuando el mundo no nos ve, imagínate cuando lo haga. Te amo hoy y siempre. 💛
+    </p>
+  </div>
+</section>
+
+<section aria-labelledby="letter-title">
+  <p class="section-label reveal">Palabras del corazón</p>
+  <h2 class="section-title reveal" id="letter-title">Una carta <em>solo para ti</em></h2>
+
+  <div class="letter-wrap reveal">
+    <p class="letter-date">22 de Junio 2026</p>
+
+    <div class="letter-content">
+      <div class="letter-body">
+        <p>Feliz cumpleaños, Mort. ❤️</p>
+        <p>Hoy es uno de esos días que merecen detener el tiempo por un momento. No solo porque cumples años, sino porque existe la oportunidad de recordarte lo importante que eres para mí y lo agradecido que estoy de que la vida nos haya cruzado en el mismo camino.</p>
+        <p>A veces me pongo a pensar en cómo empezó todo y me sigue pareciendo increíble. Todo comenzó con cinco minutos. Cinco minutos que parecían cualquier cosa, pero que terminaron cambiando mi vida de una manera que jamás imaginé. Si alguien me hubiera dicho aquel día todo lo que ibas a significar para mí, probablemente no lo habría creído. Pero aquí estamos, y hoy no puedo imaginar mi vida sin pensar en ti.</p>
+        <p>Lo que más me gusta de nosotros no son solo los momentos especiales. Claro que los amo, pero lo que realmente me hace feliz son esas pequeñas cosas que parecen insignificantes para cualquiera más. Nuestras conversaciones interminables, nuestras bromas que solo nosotros entendemos, los buenos días, los mensajes inesperados, las risas que aparecen cuando ninguno de los dos las estaba buscando. Son esos momentos los que poco a poco fueron construyendo algo tan bonito entre nosotros.</p>
+        <p>Quiero que sepas que te admiro muchísimo. Admiro tu forma de enfrentar las cosas, tu manera de preocuparte por quienes quieres, tu forma de luchar incluso cuando tienes miedo. Porque sí, sé que a veces dudas de ti misma. Sé que hay días en los que no ves todo lo que vales. Pero desde donde yo te veo, eres una mujer increíble. Más fuerte de lo que imaginas, más capaz de lo que crees y mucho más especial de lo que tú misma reconoces.</p>
+        <p>No te voy a decir que no existen miedos. Ambos sabemos que sí los hay. Sabemos que la vida no siempre pone los caminos fáciles y que hay momentos donde las dudas intentan hacerse más grandes que los sentimientos. Pero también sé algo que para mí es mucho más importante: cada día que pasa elijo quedarme. Elijo seguir apostando por ti, por nosotros y por todo lo que estamos construyendo.</p>
+        <p>Contigo aprendí que el amor no siempre son grandes discursos o gestos gigantescos. A veces el amor está en preguntar cómo estuvo tu día, en escuchar tus preocupaciones, en celebrar tus logros como si fueran propios y en estar presente incluso cuando las palabras no alcanzan. Está en saber que existe alguien que piensa en ti cuando algo bueno le pasa y también cuando las cosas se complican.</p>
+        <p>Me gusta cómo me siento cuando estoy contigo. Me gusta poder ser yo sin preocuparme por aparentar nada. Me gusta sentir que puedo contarte cualquier cosa y que puedo compartir mis alegrías, mis preocupaciones y mis sueños contigo. Me gusta la tranquilidad que me das. Me gusta saber que al final del día estás ahí.</p>
+        <p>Y si hoy pudiera pedir un deseo en tu cumpleaños, no pediría algo para mí. Pediría que nunca pierdas esa sonrisa que tanto me gusta. Pediría que cumplas cada meta que tienes en tu corazón. Pediría que nunca dejes de creer en ti misma. Y pediría que la vida te devuelva multiplicado todo lo bueno que das a los demás, porque te lo mereces más de lo que imaginas.</p>
+        <p>Gracias por cada momento, por cada risa, por cada conversación y por cada recuerdo que hemos construido juntos. Gracias por permitirme conocerte, por abrirme un espacio en tu vida y por hacer que mis días sean mejores simplemente con existir.</p>
+        <p>Hoy celebramos tu cumpleaños, pero yo también celebro algo más: la enorme fortuna de tenerte en mi vida.</p>
+        <p>Espero que este día esté lleno de sonrisas, abrazos, momentos bonitos y todo aquello que te haga feliz. Y espero también que este sea apenas el primero de muchos cumpleaños que tenga la suerte de celebrar contigo.</p>
+        <p>Te quiero muchísimo, mi amor. Más de lo que a veces las palabras pueden explicar.</p>
+        <p>Feliz cumpleaños, mi zorro favorito. 🦊❤️</p>
+      </div>
+      
+      <div class="letter-images">
+        <div class="polaroid">
+          <img src="1.jpeg" alt="Eduardo">
+          <p class="polaroid-text">Eduardo</p>
+        </div>
+        <div class="polaroid">
+          <img src="2.jpeg" alt="Adilene">
+          <p class="polaroid-text">Adilene</p>
+        </div>
+        <p class="fox-quote">Los zorros que nos acompañan 🦊</p>
+      </div>
+    </div>
+
+    <p class="letter-signature">Con todo mi amor, <em>para siempre</em> &nbsp;✦</p>
+  </div>
+</section>
+
+<section aria-labelledby="song-title">
+  <p class="section-label reveal">Una canción para ti</p>
+  <h2 class="section-title reveal" id="song-title">Suenas como <em>Morat</em></h2>
+
+  <div class="video-container reveal">
+    <video controls playsinline>
+      <source src="La_paz_de_tu_mirar.mp4" type="video/mp4">
+      Tu navegador no soporta el elemento de video.
+    </video>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <span class="hearts">✨ 🦊 ✨</span>
+  Hecho con amor · Luis Eduardo Aispuro
+</footer>
+
+<script>
+  /* ── FUNCIONES DEL MODAL ── */
+  function closeModal() {
+    const modal = document.getElementById('blockedModal');
+    modal.classList.remove('active');
+  }
+
+  // Cerrar modal al hacer clic fuera
+  document.getElementById('blockedModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+      closeModal();
+    }
+  });
+
+  // Cerrar modal con Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+
+  /* ── Partículas flotantes mejoradas ── */
+  (function(){
+    const c = document.getElementById('particles');
+    const ctx = c.getContext('2d');
+    let W, H, pts = [];
+
+    const SYMBOLS = ['♥','✦','✧','✨','◦'];
+    const COLORS  = ['#e8a5b5','#ffffff','#fce4ec','#c97b8c', '#e8d4a8']; 
+
+    function resize(){ 
+      W = c.width = window.innerWidth; 
+      H = c.height = window.innerHeight; 
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function spawn(isInitial = false){
+      pts.push({
+        x: Math.random() * W,
+        y: isInitial ? Math.random() * H : H + 20,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: -(Math.random() * 0.6 + 0.2),
+        alpha: Math.random() * 0.6 + 0.2,
+        size: Math.random() * 12 + 6,
+        sym: SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)],
+        col: COLORS[Math.floor(Math.random() * COLORS.length)],
+        spin: (Math.random() - 0.5) * 0.02,
+        rot: Math.random() * Math.PI * 2
+      });
+    }
+
+    for(let i=0; i<40; i++){ spawn(true); }
+
+    let frame = 0;
+    function tick(){
+      ctx.clearRect(0, 0, W, H);
+      if(frame++ % 120 === 0) spawn();
+      
+      pts = pts.filter(p => {
+        p.x += p.vx; 
+        p.y += p.vy; 
+        p.rot += p.spin; 
+        p.alpha -= 0.0003; 
+        
+        if(p.y < -30 || p.alpha <= 0) return false;
+        
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rot);
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.col;
+        ctx.font = `${p.size}px sans-serif`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(p.sym, 0, 0);
+        ctx.restore();
+        
+        return true;
+      });
+      requestAnimationFrame(tick);
+    }
+    tick();
+  })();
+
+  /* ── Scroll reveal suave ── */
+  (function(){
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { 
+        if(e.isIntersecting){ 
+          e.target.classList.add('visible'); 
+          io.unobserve(e.target); 
+        }
+      });
+    }, { threshold: 0.1 }); 
+    els.forEach(el => io.observe(el));
+  })();
+</script>
+
+</body>
+</html>
