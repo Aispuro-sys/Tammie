@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Para Adi 🦊✨</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Paleta Modo Noche (Por defecto) */
+  --bg-color: #0b0710;
+  --bg-gradient-1: #1a1025;
+  --bg-gradient-2: #2d1f3d;
+  --card-bg: rgba(25, 18, 35, 0.4);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text-main: #fdf8f4;
+  --text-muted: #b4a5c8;
+  --gold: #d4a574;
+  --rose: #c97b8a;
+  --accent-glow: 212, 165, 116;
+  --btn-text: #ffffff;
+}
+
+/* Paleta Modo Luz (Al encender) */
+body.lights-on {
+  --bg-color: #fdf8f4;
+  --bg-gradient-1: #f4e8e1;
+  --bg-gradient-2: #e8d0c3;
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(201, 123, 138, 0.25);
+  --text-main: #2d2435;
+  --text-muted: #6a5a7a;
+  --gold: #b88645;
+  --rose: #a85265;
+  --accent-glow: 201, 123, 138;
+  --btn-text: #ffffff;
+}
+
+/* Easter egg mode */
+body.easter {
+  --bg-color: #1a0f20;
+  --bg-gradient-1: #2d1f3d;
+  --bg-gradient-2: #4a3d5a;
+  --card-bg: rgba(30, 20, 40, 0.5);
+  --card-border: rgba(212, 165, 116, 0.3);
+  --text-main: #fdf8f4;
+  --text-muted: #d4a574;
+  --gold: #f0d4b4;
+  --rose: #e8b4bc;
+  --accent-glow: 212, 165, 116;
+  --btn-text: #ffffff;
+}
+
+body.easter.lights-on {
+  --bg-color: #f0e6dc;
+  --bg-gradient-1: #e8d0c3;
+  --bg-gradient-2: #f4e8e1;
+  --card-bg: rgba(255, 245, 235, 0.8);
+  --card-border: rgba(212, 165, 116, 0.4);
+  --text-main: #2d2435;
+  --text-muted: #b88645;
+  --gold: #d4a574;
+  --rose: #c97b8a;
+  --accent-glow: 212, 165, 116;
+  --btn-text: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-color);
+  font-family: 'Jost', sans-serif;
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 2rem;
+  position: relative;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+/* Fondo dinámico con partículas */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 0;
+  background: radial-gradient(circle at 15% 50%, var(--bg-gradient-2) 0%, transparent 50%),
+              radial-gradient(circle at 85% 30%, var(--bg-gradient-1) 0%, transparent 50%);
+  opacity: 0.6;
+  transition: all 1s ease;
+  filter: blur(60px);
+}
+
+body.easter::before {
+  background: radial-gradient(circle at 25% 25%, rgba(var(--accent-glow), 0.3) 0%, transparent 50%),
+              radial-gradient(circle at 75% 75%, rgba(var(--accent-glow), 0.2) 0%, transparent 50%),
+              radial-gradient(circle at 15% 50%, var(--bg-gradient-2) 0%, transparent 50%),
+              radial-gradient(circle at 85% 30%, var(--bg-gradient-1) 0%, transparent 50%);
+  opacity: 0.8;
+}
+
+/* Botón de regresar */
+.nav-back {
+  position: fixed;
+  top: 2rem; left: 2rem; z-index: 100;
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: 100px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-back:hover {
+  transform: translateX(-5px);
+  background: rgba(var(--accent-glow), 0.15);
+  border-color: rgba(var(--accent-glow), 0.3);
+}
+
+.nav-back svg { width: 16px; height: 16px; }
+
+.page {
+  position: relative; z-index: 1;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ══════════════════════════════════
+   TARJETA DE CONTENIDO (Glassmorphism)
+══════════════════════════════════ */
+.content-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  max-width: 750px; width: 100%;
+  padding: 4rem 3rem;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15),
+              inset 0 1px 0 rgba(255,255,255,0.1);
+  animation: cardFadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  position: relative; z-index: 2;
+  transition: all 1s ease;
+}
+
+body.easter .content-card {
+  box-shadow: 0 30px 60px rgba(var(--accent-glow), 0.2),
+              inset 0 1px 0 rgba(255,255,255,0.2),
+              0 0 0 1px rgba(var(--accent-glow), 0.1);
+}
+
+@keyframes cardFadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.content-header { text-align: center; margin-bottom: 2.5rem; }
+
+.content-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(var(--accent-glow), 0.2), rgba(var(--accent-glow), 0.05));
+  border: 1px solid rgba(var(--accent-glow), 0.3);
+  color: var(--gold);
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+  font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.15em;
+  margin-bottom: 1.5rem;
+  transition: color 1s ease, border-color 1s ease;
+}
+
+.content-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; font-weight: 300; line-height: 1.2;
+  color: var(--text-main); margin-bottom: 0.5rem;
+  transition: color 1s ease;
+}
+
+.content-title em { font-style: italic; color: var(--rose); }
+
+.content-subtitle {
+  font-size: 1rem; color: var(--text-muted); letter-spacing: 0.05em;
+  font-weight: 300; transition: color 1s ease;
+}
+
+.divider {
+  display: flex; align-items: center; margin: 2.5rem 0;
+  opacity: 0.6;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; height: 1px;
+  background: linear-gradient(to right, transparent, var(--rose), transparent);
+}
+.divider-icon { padding: 0 1rem; font-size: 1.2rem; }
+
+.message {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem; line-height: 1.8;
+  color: var(--text-main); margin-bottom: 1.5rem;
+  text-align: center; font-weight: 300;
+  transition: color 1s ease;
+}
+.message strong { color: var(--gold); font-weight: 500; transition: color 1s ease; }
+
+.quote {
+  font-style: italic; font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; color: var(--text-muted);
+  text-align: center; margin: 3rem 0; padding: 2rem;
+  position: relative;
+  transition: color 1s ease;
+}
+.quote::before {
+  content: '"';
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  font-size: 4rem; color: rgba(var(--accent-glow), 0.15);
+  font-family: serif; line-height: 1;
+}
+
+.footer {
+  text-align: center; margin-top: 3rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem; color: var(--text-muted);
+  transition: color 1s ease;
+}
+
+/* Botones */
+.actions {
+  display: flex; gap: 1rem; margin-top: 3rem;
+  flex-wrap: wrap; justify-content: center;
+}
+
+.btn {
+  flex: 1; min-width: 160px; max-width: 200px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 1rem 1.5rem; border-radius: 100px;
+  font-family: 'Jost', sans-serif; font-size: 0.9rem; font-weight: 400; letter-spacing: 0.05em;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--rose) 100%);
+  color: var(--btn-text);
+  box-shadow: 0 8px 25px rgba(var(--accent-glow), 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(var(--accent-glow), 0.4);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--card-border);
+  position: relative; overflow: hidden;
+}
+
+.btn-secondary:hover {
+  border-color: var(--rose);
+  transform: translateY(-4px);
+  background: rgba(var(--accent-glow), 0.05);
+}
+
+/* Modal */
+.modal {
+  position: fixed; inset: 0; display: grid; place-items: center;
+  background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px);
+  opacity: 0; pointer-events: none; transition: opacity 0.4s ease; z-index: 60;
+}
+.modal[aria-hidden="false"] { opacity: 1; pointer-events: auto; }
+
+.modal-card {
+  width: min(600px, calc(100vw - 40px));
+  background: var(--card-bg);
+  backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
+  border: 1px solid var(--card-border);
+  border-radius: 24px; padding: 3rem;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+  text-align: center; transform: translateY(20px); transition: transform 0.4s ease;
+}
+.modal[aria-hidden="false"] .modal-card { transform: translateY(0); }
+
+.modal-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--text-main); margin-bottom: 1rem; }
+.modal-text { color: var(--text-muted); line-height: 1.8; font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; }
+.modal-actions { margin-top: 2rem; display: flex; justify-content: center; }
+
+.modal-icon {
+  width: 100px; height: 100px; margin: 0 auto 1.5rem;
+  cursor: pointer; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.modal-icon:hover { transform: scale(1.1) rotate(-5deg); }
+.modal-icon img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.2)); }
+
+/* Sparks con colores dinámicos */
+.spark {
+  position: fixed; transform: translate(-50%, -50%); font-size: 18px; pointer-events: none;
+  animation: sparkAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; z-index: 70;
+  text-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+body.easter .spark {
+  text-shadow: 0 0 15px rgba(var(--accent-glow), 0.9);
+  color: var(--gold);
+}
+
+@keyframes sparkAnim {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.4); }
+  20% { opacity: 1; }
+  100% { opacity: 0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.2); }
+}
+
+@media(max-width: 600px) {
+  body { padding: 1rem; }
+  .content-card { padding: 3rem 1.5rem; }
+  .content-title { font-size: 2.2rem; }
+  .message, .quote { font-size: 1.1rem; }
+  .actions { flex-direction: column; }
+  .btn { width: 100%; max-width: 100%; }
+  .nav-back { top: 1rem; left: 1rem; padding: 0.6rem 1rem; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+
+<a href="Mort/menu_adi_v2.html" class="nav-back">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M19 12H5M12 19l-7-7 7-7"/>
+  </svg>
+  Volver al menú
+</a>
+
+<div class="page">
+  <div class="content-card">
+    <header class="content-header">
+      <span class="content-badge">✦ Especial para ti ✦</span>
+      <h2 class="content-title">Un detalle pequeño</h2>
+      <p class="content-subtitle">con una intención enorme.</p>
+    </header>
+
+    <div class="divider"><span class="divider-icon">✦</span></div>
+
+    <p class="message">
+      Hay personas que no pasan por la vida sin dejar huella. Personas cuya presencia suaviza los días, 
+      que sin proponérselo cambian el ritmo de las cosas y hacen que todo se sienta un poco más vivo. 
+      <strong>Tú eres una de ellas.</strong>
+    </p>
+
+    <p class="message">
+      Y por eso quise regalarte algo que hablara sin prisa, algo que reflejara lo que despiertas en mí 
+      cuando las palabras se quedan cortas.
+    </p>
+
+    <div class="divider"><span class="divider-icon">🦊</span></div>
+
+    <p class="message">
+      <strong>La lámpara de zorro</strong> es para ti porque los zorros no solo son bellos: son sabios, atentos, 
+      leales y silenciosamente fuertes. Como tú. Que su luz te acompañe en las noches largas, en los momentos 
+      de cansancio, y que te recuerde que incluso en la oscuridad siempre hay algo que puede brillar por ti. 
+      Una luz discreta, constante, de esas que no deslumbran, pero permanecen.
+    </p>
+
+    <p class="message">
+      <strong>La agenda</strong> es un espacio solo tuyo. Un lugar para ordenar ideas, guardar planes y dejar 
+      huella de los días que importan. Que cada palabra escrita sea una forma de cuidarte y de avanzar hacia 
+      lo que deseas, a tu tiempo, a tu manera.
+    </p>
+
+    <div class="divider"><span class="divider-icon">🔥</span></div>
+
+    <div class="quote">
+      Jugar con fuego es aceptar la danza del riesgo, sabiendo que, en cada chispa, hay un peligro 
+      que arde en el alma y puede dejar cicatrices.
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-primary" id="toggleLights">
+        ✨ Encender luz
+      </button>
+      <button class="btn btn-secondary" id="openSurprise">
+        💌 Sorpresa
+      </button>
+    </div>
+
+    <div class="footer">
+      <p>
+        Con cariño sincero,<br>
+        <strong>Luis Eduardo Aispuro</strong>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="modal" aria-hidden="true" role="dialog">
+  <div class="modal-card">
+    <div class="modal-icon" id="modalIcon" title="¡Haz triple click!">
+      <img src="Mort/Zorros/zorro sin fondo.png" alt="Zorrito">
+    </div>
+    <h2 class="modal-title" id="modalTitle">Para cuando lo necesites</h2>
+    <p class="modal-text" id="modalText">Si algún día te pesa el mundo, acuérdate de esto: no tienes que brillar fuerte para ser luz. Con que sigas siendo tú, ya estás haciendo algo precioso.</p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="closeSurprise">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalText = document.getElementById('modalText');
+  const modalIcon = document.getElementById('modalIcon');
+  const openSurprise = document.getElementById('openSurprise');
+  const closeSurprise = document.getElementById('closeSurprise');
+  const toggleLights = document.getElementById('toggleLights');
+
+  const defaultModalTitle = modalTitle.textContent;
+  const defaultModalText = modalText.textContent;
+
+  function openModal(){ modal.setAttribute('aria-hidden','false'); }
+  function closeModal(){ modal.setAttribute('aria-hidden','true'); }
+
+  function sparkAt(x, y, n=12){
+    const isEaster = document.body.classList.contains('easter');
+    const glyphs = isEaster 
+      ? ['✨','✦','✧','⋆','🦊','💫','⭐','🌟']
+      : ['✨','✦','✧','⋆','💕','🌟'];
+    
+    for(let i=0; i<n; i++){
+      const s = document.createElement('span');
+      s.className = 'spark';
+      s.textContent = glyphs[Math.floor(Math.random()*glyphs.length)];
+      s.style.left = x + 'px';
+      s.style.top = y + 'px';
+      s.style.setProperty('--dx', (Math.random()*200-100) + 'px');
+      s.style.setProperty('--dy', (Math.random()*200-150) + 'px');
+      
+      if(isEaster) {
+        s.style.color = ['var(--gold)', 'var(--rose)', 'var(--text-main)'][Math.floor(Math.random()*3)];
+      }
+      
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 1000);
+    }
+  }
+
+  openSurprise.addEventListener('click', (e) => {
+    modalTitle.textContent = defaultModalTitle;
+    modalText.textContent = defaultModalText;
+    openModal();
+    sparkAt(e.clientX, e.clientY, 15);
+  });
+
+  closeSurprise.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => { if(e.target === modal) closeModal(); });
+  window.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+
+  let lightsOn = false;
+  toggleLights.addEventListener('click', (e) => {
+    lightsOn = !lightsOn;
+    document.body.classList.toggle('lights-on', lightsOn);
+    toggleLights.innerHTML = lightsOn ? '🌙 Apagar luz' : '✨ Encender luz';
+    sparkAt(e.clientX, e.clientY, 15);
+  });
+
+  let foxClicks = 0, foxTimer = 0;
+  modalIcon.addEventListener('click', (e) => {
+    foxClicks++;
+    clearTimeout(foxTimer);
+    foxTimer = setTimeout(() => foxClicks = 0, 500);
+    sparkAt(e.clientX, e.clientY, 5);
+
+    if(foxClicks === 3){
+      foxClicks = 0;
+      const isEaster = document.body.classList.toggle('easter');
+      modalTitle.textContent = 'Un secreto más...';
+      modalText.textContent = 'Que este pequeño zorro te recuerde que lo especial a veces está escondido a simple vista. Eres increíble por encontrar este secreto. 💕🦊';
+      sparkAt(e.clientX, e.clientY, 30);
+    }
+  });
+})();
+</script>
+</body>
+</html>
