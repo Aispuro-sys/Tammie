@@ -32,11 +32,20 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-
 .close-menu{position:absolute;top:28px;right:28px;background:none;border:none;color:var(--ink-soft);font-size:2rem;cursor:pointer;transition:transform .3s;line-height:1}
 .close-menu:hover{transform:rotate(90deg);color:var(--rose)}
 
+/* Header Banner */
+.header-banner{position:relative;width:100%;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;margin-bottom:40px}
+.header-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(58,42,46,0.35) 0%,rgba(58,42,46,0.2) 50%,rgba(250,247,242,0.95) 100%);z-index:1}
+.header-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.header-content{position:relative;z-index:2;padding:0 24px}
+.header-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.2rem);font-weight:500;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,0.25);line-height:1.1;margin-bottom:12px}
+.header-content h1 em{font-style:italic;color:var(--gold-light)}
+.header-content p{color:rgba(255,255,255,0.85);font-size:1.05rem;text-shadow:0 1px 10px rgba(0,0,0,0.2);max-width:420px;margin:0 auto}
+
 /* Layout */
 .container{position:relative;z-index:10;max-width:1180px;margin:0 auto;padding:0 28px 120px}
 
 /* Hero */
-.hero{padding:80px 0 60px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.hero{padding:0 0 60px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:20px}
 .hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--rose-light)}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4.5vw,3.8rem);font-weight:500;line-height:1.1;color:var(--ink);margin-bottom:20px}
@@ -44,15 +53,22 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-
 .hero-desc{font-size:1rem;color:var(--ink-muted);line-height:1.7;max-width:440px;margin-bottom:32px}
 
 /* Note card */
-.note-card{background:var(--white);border:1px solid var(--gold-light);border-radius:18px;padding:24px 28px;position:relative}
-.note-card::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:5rem;color:var(--gold-light);position:absolute;top:-10px;left:20px;line-height:1}
-.note-card label{display:block;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.note-card textarea{width:100%;background:transparent;border:none;color:var(--ink-soft);font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;resize:none;min-height:140px;line-height:1.7;outline:none}
+.note-card{background:var(--white);border:1px solid var(--gold-light);border-radius:22px;padding:32px 32px 28px;position:relative;box-shadow:0 4px 20px rgba(201,123,132,.08);transition:box-shadow .3s ease}
+.note-card:hover{box-shadow:0 8px 30px rgba(201,123,132,.14)}
+.note-card::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:5.5rem;color:var(--gold-light);position:absolute;top:-14px;left:24px;line-height:1;opacity:.7}
+.note-card label{display:block;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.note-card textarea{width:100%;background:transparent;border:none;color:var(--ink-soft);font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-style:italic;resize:none;min-height:160px;line-height:1.7;outline:none;padding-left:8px}
 
 /* Featured */
-.featured-wrap{background:var(--white);border:1px solid var(--rose-light);border-radius:28px;padding:10px;box-shadow:0 8px 32px rgba(201,123,132,.1)}
-.featured-wrap iframe{border-radius:20px;display:block}
-.featured-label{font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-muted);font-weight:600;text-align:center;padding:14px 0 6px}
+.featured-section{background:var(--white);border:1px solid var(--rose-light);border-radius:28px;padding:24px;box-shadow:0 12px 40px rgba(201,123,132,.12);position:relative;overflow:hidden}
+.featured-section::before{content:'✦';position:absolute;top:16px;right:20px;font-size:1.4rem;color:var(--rose-light);opacity:.5}
+.featured-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--blush)}
+.featured-header .icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--rose-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
+.featured-header h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--ink)}
+.featured-header span{font-size:.75rem;color:var(--ink-muted);margin-left:auto}
+.featured-wrap{border-radius:18px;overflow:hidden}
+.featured-wrap iframe{border-radius:16px;display:block;width:100%}
+.featured-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--ink-soft);text-align:center;margin-top:18px;padding-top:14px;border-top:1px solid var(--blush)}
 
 /* Divider */
 .section-divider{display:flex;align-items:center;gap:20px;margin:60px 0 40px}
@@ -110,6 +126,15 @@ Volver al menu
 </div>
 <script>function toggleMenu(){document.getElementById('fsMenu').classList.toggle('active');}</script>
 
+<!-- Header Banner -->
+<div class="header-banner">
+<img src="Imagenes/CARD 3.jpg" alt="Playlist"/>
+<div class="header-content">
+<h1>Playlist <em>2025</em></h1>
+<p>Cada canción es un recuerdo, cada nota una emoción guardada para ti.</p>
+</div>
+</div>
+
 <div class="container">
 
 <section class="hero">
@@ -129,9 +154,16 @@ Eduardo Aispuro
 </div>
 </div>
 <div class="hero-right">
+<div class="featured-section">
+<div class="featured-header">
+<div class="icon">🎵</div>
+<h3>Nuestra canción destacada</h3>
+<span>Morat — Mil Tormentas</span>
+</div>
 <div class="featured-wrap">
-<p class="featured-label">✦ Nuestra canción destacada</p>
 <iframe src="https://open.spotify.com/embed/track/609ItcFreOqmwRjmBbocds?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</div>
+<div class="featured-quote">"Algunas canciones no se eligen, simplemente te encuentran cuando más las necesitas."</div>
 </div>
 </div>
 </section>
