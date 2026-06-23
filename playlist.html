@@ -6,60 +6,163 @@
 <title>Para Adi — Playlist 2025</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#FAF7F2;--blush:#F5E6E0;--rose:#C97B84;--rose-light:#E8B4B8;--rose-deep:#A05A63;--gold:#C9A96E;--gold-light:#E8D5B0;--ink:#3A2A2E;--ink-soft:#6B5055;--ink-muted:#9E8589;--white:#fff;}
+:root{
+  --cream:#FAF7F2;
+  --cream-deep:#F2EDE4;
+  --blush:#F5E6E0;
+  --rose:#C97B84;
+  --rose-light:#E8B4B8;
+  --rose-deep:#A05A63;
+  --gold:#C9A96E;
+  --gold-light:#E8D5B0;
+  --gold-pale:#F5EDD8;
+  --ink:#3A2A2E;
+  --ink-soft:#6B5055;
+  --ink-muted:#9E8589;
+  --white:#fff;
+}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;overflow-x:hidden;line-height:1.6}
 
 /* Back button */
-.nav-back{position:fixed;top:20px;left:20px;z-index:10001;display:flex;align-items:center;gap:6px;padding:10px 18px;border-radius:100px;background:var(--white);border:1px solid var(--rose-light);color:var(--ink-soft);font-family:'Jost',sans-serif;font-size:.85rem;font-weight:500;text-decoration:none;transition:all .3s ease;box-shadow:0 2px 12px rgba(201,123,132,.12);cursor:pointer}
+.nav-back{position:fixed;top:20px;left:20px;z-index:10001;display:flex;align-items:center;gap:6px;padding:10px 18px;border-radius:100px;background:var(--white);border:1px solid var(--rose-light);color:var(--ink-soft);font-family:'Jost',sans-serif;font-size:.85rem;font-weight:500;text-decoration:none;transition:all .3s ease;box-shadow:0 2px 12px rgba(201,123,132,.12)}
 .nav-back:hover{background:var(--blush);border-color:var(--rose);color:var(--rose-deep);transform:translateX(-4px)}
-.nav-back svg{width:16px;height:16px}
+.nav-back svg{width:16px;height:16px;flex-shrink:0}
 
 /* Petals */
 .petals-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
-.petal{position:absolute;top:-30px;font-size:12px;opacity:0;animation:petalFall linear infinite}
-@keyframes petalFall{0%{transform:translateY(0) rotate(0deg);opacity:0}5%{opacity:.6}95%{opacity:.4}100%{transform:translateY(105vh) rotate(360deg);opacity:0}}
+.petal{position:absolute;top:-30px;opacity:0;animation:petalFall linear infinite}
+@keyframes petalFall{0%{transform:translateY(0) rotate(0deg);opacity:0}5%{opacity:.55}95%{opacity:.35}100%{transform:translateY(105vh) rotate(400deg);opacity:0}}
 
 /* Header Banner */
-.header-banner{position:relative;width:100%;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;margin-bottom:40px}
-.header-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(58,42,46,0.35) 0%,rgba(58,42,46,0.2) 50%,rgba(250,247,242,0.95) 100%);z-index:1}
+.header-banner{position:relative;width:100%;height:380px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;margin-bottom:0}
+.header-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(58,42,46,.35) 0%,rgba(58,42,46,.2) 50%,rgba(250,247,242,.95) 100%);z-index:1}
 .header-banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
 .header-content{position:relative;z-index:2;padding:0 24px}
-.header-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.2rem);font-weight:500;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,0.25);line-height:1.1;margin-bottom:12px}
+.header-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5vw,4.2rem);font-weight:500;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.25);line-height:1.1;margin-bottom:12px}
 .header-content h1 em{font-style:italic;color:var(--gold-light)}
-.header-content p{color:rgba(255,255,255,0.85);font-size:1.05rem;text-shadow:0 1px 10px rgba(0,0,0,0.2);max-width:420px;margin:0 auto}
+.header-content p{color:rgba(255,255,255,.85);font-size:1.05rem;text-shadow:0 1px 10px rgba(0,0,0,.2);max-width:420px;margin:0 auto}
 
 /* Layout */
-.container{position:relative;z-index:10;max-width:1180px;margin:0 auto;padding:0 28px 120px}
+.container{position:relative;z-index:10;max-width:1180px;margin:0 auto;padding:50px 28px 120px;background:var(--cream);border-radius:40px 40px 0 0;box-shadow:0 -20px 60px rgba(0,0,0,.06)}
 
-/* Hero */
-.hero{padding:0 0 60px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--rose);margin-bottom:20px}
-.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--rose-light)}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,4.5vw,3.8rem);font-weight:500;line-height:1.1;color:var(--ink);margin-bottom:20px}
-.hero-title em{font-style:italic;color:var(--rose)}
-.hero-desc{font-size:1rem;color:var(--ink-muted);line-height:1.7;max-width:440px;margin-bottom:32px}
+/* ═══════════════════════════════════════
+   HERO — mensaje + canción destacada
+═══════════════════════════════════════ */
+.hero{padding:60px 0;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:stretch}
 
-/* Note card */
-.note-card{background:var(--white);border:1px solid var(--gold-light);border-radius:22px;padding:32px 32px 28px;position:relative;box-shadow:0 4px 20px rgba(201,123,132,.08);transition:box-shadow .3s ease}
-.note-card:hover{box-shadow:0 8px 30px rgba(201,123,132,.14)}
-.note-card::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:5.5rem;color:var(--gold-light);position:absolute;top:-14px;left:24px;line-height:1;opacity:.7}
-.note-card label{display:block;font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-.note-card textarea{width:100%;background:transparent;border:none;color:var(--ink-soft);font-family:'Cormorant Garamond',serif;font-size:1.08rem;font-style:italic;resize:none;min-height:160px;line-height:1.7;outline:none;padding-left:8px}
+/* ── Mensaje personal ── */
+.letter-card{
+  background:var(--white);
+  border:1px solid var(--gold-light);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 6px 28px rgba(201,123,132,.1);
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
 
-/* Featured */
-.featured-section{background:var(--white);border:1px solid var(--rose-light);border-radius:28px;padding:24px;box-shadow:0 12px 40px rgba(201,123,132,.12);position:relative;overflow:hidden}
-.featured-section::before{content:'✦';position:absolute;top:16px;right:20px;font-size:1.4rem;color:var(--rose-light);opacity:.5}
-.featured-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--blush)}
-.featured-header .icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--rose),var(--rose-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem}
-.featured-header h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;color:var(--ink)}
-.featured-header span{font-size:.75rem;color:var(--ink-muted);margin-left:auto}
-.featured-wrap{border-radius:18px;overflow:hidden}
-.featured-wrap iframe{border-radius:16px;display:block;width:100%}
-.featured-quote{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--ink-soft);text-align:center;margin-top:18px;padding-top:14px;border-top:1px solid var(--blush)}
+.letter-top{
+  background:linear-gradient(135deg,var(--rose) 0%,var(--rose-deep) 100%);
+  padding:26px 32px 22px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.letter-top .lt-icon{
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;flex-shrink:0;
+}
+.letter-top h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.35rem;font-weight:500;
+  color:#fff;line-height:1.2;
+}
+.letter-top p{font-size:.78rem;color:rgba(255,255,255,.75);margin-top:2px;letter-spacing:.5px}
 
-/* Divider */
+.letter-body{padding:32px 32px 28px;position:relative;flex:1;display:flex;flex-direction:column}
+.letter-body::before{
+  content:'\201C';
+  font-family:'Cormorant Garamond',serif;
+  font-size:6rem;color:var(--gold-light);
+  position:absolute;top:-8px;left:22px;
+  line-height:1;opacity:.6;pointer-events:none;
+}
+.letter-body textarea{
+  width:100%;background:transparent;border:none;
+  color:var(--ink-soft);font-family:'Cormorant Garamond',serif;
+  font-size:1.07rem;font-style:italic;
+  resize:none;line-height:1.75;outline:none;
+  padding-left:6px;flex:1;min-height:200px;
+}
+.letter-footer{
+  border-top:1px solid var(--cream-deep);
+  padding:12px 28px;
+  display:flex;align-items:center;gap:8px;
+}
+.letter-footer span{font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-muted)}
+.letter-footer .dot{width:4px;height:4px;border-radius:50%;background:var(--rose-light)}
+
+/* ── Canción destacada ── */
+.featured-card{
+  background:var(--white);
+  border:1px solid var(--rose-light);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 12px 40px rgba(201,123,132,.12);
+  height:100%;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Franja superior con detalles */
+.feat-header{
+  padding:24px 28px 20px;
+  border-bottom:1px solid var(--blush);
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:12px;
+}
+.feat-vinyl{
+  width:52px;height:52px;border-radius:50%;
+  background:conic-gradient(var(--ink) 0%,#4a3540 25%,var(--ink) 50%,#4a3540 75%,var(--ink) 100%);
+  position:relative;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 3px 12px rgba(0,0,0,.2);
+  animation:spin 8s linear infinite;
+  animation-play-state:paused;
+}
+.feat-vinyl:hover{animation-play-state:running}
+.feat-vinyl::after{content:'';width:14px;height:14px;border-radius:50%;background:var(--cream);position:absolute;box-shadow:inset 0 0 0 2px rgba(0,0,0,.1)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.feat-info{}
+.feat-info h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.2}
+.feat-info p{font-size:.78rem;color:var(--ink-muted);margin-top:2px}
+.feat-badge{
+  font-size:.65rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--rose);background:var(--blush);
+  padding:5px 11px;border-radius:50px;white-space:nowrap;
+}
+
+.feat-player{padding:20px 20px 0;flex:1;display:flex;flex-direction:column}
+.feat-player iframe{border-radius:14px;display:block;width:100%;flex:1;min-height:320px}
+
+.feat-quote{
+  margin:20px 24px 24px;
+  padding:16px 20px;
+  background:var(--gold-pale);
+  border-left:3px solid var(--gold);
+  border-radius:0 12px 12px 0;
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:1rem;
+  color:var(--ink-soft);line-height:1.6;
+}
+
+/* Divisor */
 .section-divider{display:flex;align-items:center;gap:20px;margin:60px 0 40px}
 .section-divider .line{flex:1;height:1px;background:linear-gradient(to right,transparent,var(--rose-light),transparent)}
 .section-divider h2{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:500;color:var(--ink);white-space:nowrap}
@@ -90,9 +193,16 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-
 .btn-outline{background:transparent;color:var(--ink-soft);border:1px solid #D4C5C8}
 .btn-outline:hover{background:var(--blush);border-color:var(--rose-light)}
 
-/* Responsive */
-@media(max-width:860px){.hero{grid-template-columns:1fr;gap:36px;padding:60px 0 40px}.secrets-section{padding:40px 24px}}
-@media(max-width:560px){.songs-grid{grid-template-columns:1fr}.section-divider h2{font-size:1.7rem}}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;gap:36px;padding:40px 0}
+  .secrets-section{padding:40px 24px}
+}
+@media(max-width:560px){
+  .songs-grid{grid-template-columns:1fr}
+  .section-divider h2{font-size:1.7rem}
+  .feat-header{grid-template-columns:auto 1fr;grid-template-rows:auto auto}
+  .feat-badge{grid-column:1/-1}
+}
 </style>
 </head>
 <body>
@@ -100,66 +210,84 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-
 <div class="petals-layer" id="petals"></div>
 
 <a href="index.html" class="nav-back">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-Volver al menu
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+  Volver al menú
 </a>
 
-<!-- Header Banner -->
 <div class="header-banner">
-<img src="Imagenes/CARD 3.jpg" alt="Playlist"/>
-<div class="header-content">
-<h1>Playlist <em>2025</em></h1>
-<p>Cada canción es un recuerdo, cada nota una emoción guardada para ti.</p>
-</div>
+  <img src="Imagenes/CARD 3.jpg" alt="Playlist"/>
+  <div class="header-content">
+    <h1>Playlist <em>2025</em></h1>
+    <p>Cada canción es un recuerdo, cada nota una emoción guardada para ti.</p>
+  </div>
 </div>
 
 <div class="container">
 
-<section class="hero">
-<div class="hero-left">
-<div class="hero-eyebrow">Dedicado con amor</div>
-<h1 class="hero-title">Lo que significaste<br>para mí <em>en 2025</em></h1>
-<p class="hero-desc">Esta página es para ti, Adi. Un rincón digital con las canciones que marcaron nuestro coincidir. Aquí guardo lo que me provocabas sin darte cuenta.</p>
-<div class="note-card">
-<label>🍃 Lo que me recuerdas</label>
-<textarea id="featuredNote" placeholder="Escribe un pensamiento...">Escribo estas palabras como un último detalle de este año. Te prometo que, mientras esté a tu lado, estos gestos nunca faltarán. Haré todo lo posible por hacerte reír, por cuidar de esa hermosa sonrisa en los días en que te sientas más frágil y, sobre todo, en aquellos en los que más me necesites.
+  <section class="hero">
+
+    <!-- Carta personal -->
+    <div class="letter-card">
+      <div class="letter-top">
+        <div class="lt-icon">💌</div>
+        <div>
+          <h3>Para Adi, con todo</h3>
+          <p>Un mensaje que quería darte</p>
+        </div>
+      </div>
+      <div class="letter-body">
+        <textarea id="featuredNote" placeholder="Escribe un pensamiento...">Escribo estas palabras como un último detalle de este año. Te prometo que, mientras esté a tu lado, estos gestos nunca faltarán. Haré todo lo posible por hacerte reír, por cuidar de esa hermosa sonrisa en los días en que te sientas más frágil y, sobre todo, en aquellos en los que más me necesites.
 Siempre estaré ahí para ti, porque te prometo ser el hombro en el que puedas apoyarte, desahogarte y sentirte segura, sin miedo y sin dudas.
 
 Te quiere mucho,
 Eduardo Aispuro
 
 "Porque bastó una sola mirada para entender lo especial que eres." ✨</textarea>
-</div>
-</div>
-<div class="hero-right">
-<div class="featured-section">
-<div class="featured-header">
-<div class="icon">🎵</div>
-<h3>Nuestra canción destacada</h3>
-<span>Morat — Mil Tormentas</span>
-</div>
-<div class="featured-wrap">
-<iframe src="https://open.spotify.com/embed/track/609ItcFreOqmwRjmBbocds?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-</div>
-<div class="featured-quote">"Algunas canciones no se eligen, simplemente te encuentran cuando más las necesitas."</div>
-</div>
-</div>
-</section>
+      </div>
+      <div class="letter-footer">
+        <div class="dot"></div>
+        <span>Escrito con amor · 2025</span>
+        <div class="dot"></div>
+      </div>
+    </div>
 
-<div class="section-divider"><div class="line"></div><h2>Nuestras Canciones</h2><span class="fox">🦊</span><div class="line"></div></div>
-<p class="section-subtitle">Cada track es un momento. Dale play.</p>
+    <!-- Canción destacada -->
+    <div class="featured-card">
+      <div class="feat-header">
+        <div class="feat-vinyl" title="Hover para girar"></div>
+        <div class="feat-info">
+          <h3>Nuestra canción destacada</h3>
+          <p>Morat — Mil Tormentas</p>
+        </div>
+        <span class="feat-badge">✦ Destacada</span>
+      </div>
+      <div class="feat-player">
+        <iframe src="https://open.spotify.com/embed/track/609ItcFreOqmwRjmBbocds?utm_source=generator&theme=0"
+                width="100%" height="352" frameBorder="0" allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"></iframe>
+      </div>
+      <div class="feat-quote">
+        "Algunas canciones no se eligen — simplemente te encuentran cuando más las necesitas."
+      </div>
+    </div>
 
-<div class="songs-grid" id="songsGrid"></div>
+  </section>
 
-<div class="secrets-section">
-<h2>Mensajes Secretos</h2>
-<p class="s-sub">Pequeños recordatorios de cariño, solo para ti.</p>
-<div class="secret-box" id="secretBox">"Haz click para descubrir uno"</div>
-<div class="secrets-btns">
-<button class="btn btn-rose" id="revealBtn">✦ Revelar mensaje</button>
-<button class="btn btn-outline" id="copyBtn">Copiar</button>
-</div>
-</div>
+  <div class="section-divider"><div class="line"></div><h2>Nuestras Canciones</h2><span class="fox">🦊</span><div class="line"></div></div>
+  <p class="section-subtitle">Cada track es un momento. Dale play.</p>
+
+  <div class="songs-grid" id="songsGrid"></div>
+
+  <div class="secrets-section">
+    <h2>Mensajes Secretos</h2>
+    <p class="s-sub">Pequeños recordatorios de cariño, solo para ti.</p>
+    <div class="secret-box" id="secretBox">"Haz click para descubrir uno"</div>
+    <div class="secrets-btns">
+      <button class="btn btn-rose" id="revealBtn">✦ Revelar mensaje</button>
+      <button class="btn btn-outline" id="copyBtn">Copiar</button>
+    </div>
+  </div>
 
 </div>
 
@@ -205,49 +333,61 @@ const secrets=[
 const k=(id,f)=>`playlist2025:${id}:${f}`;
 
 function render(){
-const g=document.getElementById('songsGrid');
-g.innerHTML='';
-songsData.forEach((song,idx)=>{
-const card=document.createElement('div');
-card.className='song-card';
-card.style.animationDelay=`${idx*0.045}s`;
-const saved=localStorage.getItem(k(song.id,'note'));
-const noteText=saved||song.note;
-card.innerHTML=`<div class="song-card-header"><span class="song-tag">${song.tag}</span><span class="song-num">${String(idx+1).padStart(2,'0')}</span></div><iframe src="https://open.spotify.com/embed/track/${song.spotifyId}?utm_source=generator&theme=0" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe><p class="song-note" contenteditable="true" data-id="${song.id}">${noteText}</p>`;
-const note=card.querySelector('.song-note');
-note.addEventListener('input',e=>{localStorage.setItem(k(song.id,'note'),e.target.textContent);});
-g.appendChild(card);
-});
+  const g=document.getElementById('songsGrid');
+  g.innerHTML='';
+  songsData.forEach((song,idx)=>{
+    const card=document.createElement('div');
+    card.className='song-card';
+    card.style.animationDelay=`${idx*0.045}s`;
+    const saved=localStorage.getItem(k(song.id,'note'));
+    card.innerHTML=`
+      <div class="song-card-header">
+        <span class="song-tag">${song.tag}</span>
+        <span class="song-num">${String(idx+1).padStart(2,'0')}</span>
+      </div>
+      <iframe src="https://open.spotify.com/embed/track/${song.spotifyId}?utm_source=generator&theme=0"
+              height="152" frameBorder="0" allowfullscreen=""
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"></iframe>
+      <p class="song-note" contenteditable="true" data-id="${song.id}">${saved||song.note}</p>`;
+    card.querySelector('.song-note').addEventListener('input',e=>{
+      localStorage.setItem(k(song.id,'note'),e.target.textContent);
+    });
+    g.appendChild(card);
+  });
 }
 
 function initPetals(){
-const layer=document.getElementById('petals');
-layer.innerHTML='';
-const shapes=['🌸','🌷','✿','❀','⋆'];
-const count=window.innerWidth<600?12:22;
-for(let i=0;i<count;i++){
-const p=document.createElement('div');
-p.className='petal';
-p.textContent=shapes[Math.floor(Math.random()*shapes.length)];
-p.style.left=`${Math.random()*100}vw`;
-p.style.fontSize=`${8+Math.random()*10}px`;
-p.style.animationDuration=`${14+Math.random()*18}s`;
-p.style.animationDelay=`${Math.random()*-20}s`;
-layer.appendChild(p);
-}
+  const layer=document.getElementById('petals');
+  layer.innerHTML='';
+  const shapes=['🌸','🌷','✿','❀','⋆'];
+  const count=window.innerWidth<600?10:20;
+  for(let i=0;i<count;i++){
+    const p=document.createElement('div');
+    p.className='petal';
+    p.textContent=shapes[Math.floor(Math.random()*shapes.length)];
+    p.style.left=`${Math.random()*100}vw`;
+    p.style.fontSize=`${8+Math.random()*10}px`;
+    p.style.animationDuration=`${14+Math.random()*18}s`;
+    p.style.animationDelay=`${Math.random()*-20}s`;
+    layer.appendChild(p);
+  }
 }
 
 const secretBox=document.getElementById('secretBox');
 document.getElementById('revealBtn').addEventListener('click',()=>{
-secretBox.style.opacity=0;
-setTimeout(()=>{secretBox.textContent=`"${secrets[Math.floor(Math.random()*secrets.length)]}"`;secretBox.style.opacity=1;},250);
+  secretBox.style.opacity=0;
+  setTimeout(()=>{
+    secretBox.textContent=`"${secrets[Math.floor(Math.random()*secrets.length)]}"`;
+    secretBox.style.opacity=1;
+  },250);
 });
 document.getElementById('copyBtn').addEventListener('click',()=>{
-navigator.clipboard.writeText(secretBox.textContent.replace(/"/g,''));
-const btn=document.getElementById('copyBtn');
-const orig=btn.textContent;
-btn.textContent='✓ Copiado';
-setTimeout(()=>btn.textContent=orig,1200);
+  navigator.clipboard.writeText(secretBox.textContent.replace(/"/g,''));
+  const btn=document.getElementById('copyBtn');
+  const orig=btn.textContent;
+  btn.textContent='✓ Copiado';
+  setTimeout(()=>btn.textContent=orig,1200);
 });
 
 const featNote=document.getElementById('featuredNote');
@@ -259,6 +399,5 @@ render();
 initPetals();
 window.addEventListener('resize',initPetals);
 </script>
-
 </body>
 </html>
