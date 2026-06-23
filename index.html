@@ -1049,9 +1049,10 @@ function showBlockedModal(e) {
   document.addEventListener('keydown', escHandler);
 }
 
-// Aplicar bloqueo a todas las tarjetas excepto la primera (Inicio) y la segunda (Cumpleaños)
-document.querySelectorAll('.card').forEach((card, index) => {
-  if (index > 1) { // Solo bloquear tarjetas después de las primeras dos
+// Aplicar bloqueo solo a tarjetas que no tienen página lista (href="#" o sin href)
+document.querySelectorAll('.card').forEach((card) => {
+  const href = card.getAttribute('href');
+  if (!href || href === '#' || href.startsWith('#')) {
     card.addEventListener('click', showBlockedModal);
   }
 });
