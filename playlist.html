@@ -21,17 +21,6 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-
 .petal{position:absolute;top:-30px;font-size:12px;opacity:0;animation:petalFall linear infinite}
 @keyframes petalFall{0%{transform:translateY(0) rotate(0deg);opacity:0}5%{opacity:.6}95%{opacity:.4}100%{transform:translateY(105vh) rotate(360deg);opacity:0}}
 
-/* Menu */
-.menu-btn{position:fixed;top:22px;right:22px;z-index:10000;width:46px;height:46px;background:var(--white);border:1px solid var(--rose-light);border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;cursor:pointer;transition:all .3s ease;box-shadow:0 2px 12px rgba(201,123,132,.15)}
-.menu-btn:hover{background:var(--blush);transform:scale(1.05)}
-.menu-btn .bar{width:20px;height:1.5px;background:var(--rose-deep);border-radius:2px}
-.fullscreen-menu{position:fixed;inset:0;background:rgba(250,247,242,.97);backdrop-filter:blur(16px);z-index:9999;display:flex;flex-direction:column;justify-content:center;align-items:center;opacity:0;pointer-events:none;transition:opacity .4s ease}
-.fullscreen-menu.active{opacity:1;pointer-events:auto}
-.menu-links a{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--ink-soft);text-decoration:none;margin:10px 0;display:block;text-align:center;transition:all .3s;letter-spacing:.5px}
-.menu-links a:hover{color:var(--rose);transform:translateY(-2px);letter-spacing:2px}
-.close-menu{position:absolute;top:28px;right:28px;background:none;border:none;color:var(--ink-soft);font-size:2rem;cursor:pointer;transition:transform .3s;line-height:1}
-.close-menu:hover{transform:rotate(90deg);color:var(--rose)}
-
 /* Header Banner */
 .header-banner{position:relative;width:100%;height:340px;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;margin-bottom:40px}
 .header-banner::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(58,42,46,0.35) 0%,rgba(58,42,46,0.2) 50%,rgba(250,247,242,0.95) 100%);z-index:1}
@@ -114,17 +103,6 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
 Volver al menu
 </a>
-
-<div class="menu-btn" onclick="toggleMenu()"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div>
-<div class="fullscreen-menu" id="fsMenu">
-<button class="close-menu" onclick="toggleMenu()">✕</button>
-<nav class="menu-links">
-<a href="index.html">Inicio</a>
-<a href="inicioM.html">Pagina Principal</a>
-<a href="playlist.html">Playlist 2025</a>
-</nav>
-</div>
-<script>function toggleMenu(){document.getElementById('fsMenu').classList.toggle('active');}</script>
 
 <!-- Header Banner -->
 <div class="header-banner">
