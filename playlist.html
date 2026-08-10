@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Para Adi — Playlist 2025</title>
+<title>Para Tammie — Playlist 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -139,7 +139,6 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-
 .feat-vinyl:hover{animation-play-state:running}
 .feat-vinyl::after{content:'';width:14px;height:14px;border-radius:50%;background:var(--cream);position:absolute;box-shadow:inset 0 0 0 2px rgba(0,0,0,.1)}
 @keyframes spin{to{transform:rotate(360deg)}}
-.feat-info{}
 .feat-info h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.2}
 .feat-info p{font-size:.78rem;color:var(--ink-muted);margin-top:2px}
 .feat-badge{
@@ -182,7 +181,7 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-
 
 /* Secrets */
 .secrets-section{margin-top:90px;background:var(--white);border:1px solid var(--gold-light);border-radius:28px;padding:60px 48px;text-align:center;position:relative;overflow:hidden}
-.secrets-section::before{content:'🦊';position:absolute;font-size:120px;opacity:.04;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.secrets-section::before{content:'🌹';position:absolute;font-size:120px;opacity:.04;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
 .secrets-section h2{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:500;color:var(--ink);margin-bottom:8px}
 .secrets-section .s-sub{color:var(--ink-muted);font-size:.95rem;margin-bottom:40px}
 .secret-box{background:var(--cream);border:1px solid var(--gold-light);border-radius:18px;padding:28px 36px;margin:0 auto 32px;max-width:620px;font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:var(--ink-soft);line-height:1.6;min-height:80px;display:flex;align-items:center;justify-content:center;transition:opacity .25s ease}
@@ -231,7 +230,7 @@ body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--ink);min-
       <div class="letter-top">
         <div class="lt-icon">💌</div>
         <div>
-          <h3>Para Adi, con todo</h3>
+          <h3>Para Tammie, con todo</h3>
           <p>Un mensaje que quería darte</p>
         </div>
       </div>
@@ -274,20 +273,12 @@ Eduardo Aispuro
 
   </section>
 
-  <div class="section-divider"><div class="line"></div><h2>Nuestras Canciones</h2><span class="fox">🦊</span><div class="line"></div></div>
+  <div class="section-divider"><div class="line"></div><h2>Nuestras Canciones</h2><span class="fox">🌹</span><div class="line"></div></div>
   <p class="section-subtitle">Cada track es un momento. Dale play.</p>
 
   <div class="songs-grid" id="songsGrid"></div>
 
-  <div class="secrets-section">
-    <h2>Mensajes Secretos</h2>
-    <p class="s-sub">Pequeños recordatorios de cariño, solo para ti.</p>
-    <div class="secret-box" id="secretBox">"Haz click para descubrir uno"</div>
-    <div class="secrets-btns">
-      <button class="btn btn-rose" id="revealBtn">✦ Revelar mensaje</button>
-      <button class="btn btn-outline" id="copyBtn">Copiar</button>
-    </div>
-  </div>
+
 
 </div>
 
@@ -307,9 +298,9 @@ const songsData=[
 {id:'morat-besos',spotifyId:'1mlGScrDQqHqmhdIqE8MmA',tag:'Nostalgia',note:'Me recuerda a ti por lo intenso de sentir y callar; por esas cosas que se quedan en la garganta y aun así dicen todo.'},
 {id:'morat-comoteatreves',spotifyId:'3GjB3hDdFN5LtZvX4KPeHl',tag:'Recuerdo',note:'Me recuerda a ti por lo que no se dijo a tiempo, por la mezcla rara de orgullo, cariño y preguntas que se quedan.'},
 {id:'morat-noseva',spotifyId:'2sygPOe47UOKoEv1D5ZNAb',tag:'Eterno',note:'Me recuerda a ti porque hay cosas que no se van: se quedan en los detalles, en canciones, en momentos chiquitos.'},
-{id:'morat-cuandonadie',spotifyId:'5VbVJFRe2ywTKjJk8xqFvm',tag:'Secreto',note:'Me recuerda a ti por lo que se siente de verdad, cuando nadie está mirando y todo es más simple.'},
+
 {id:'humbe-elpoeta',spotifyId:'2fIPEgY8CJ4hh5UDZa2lB9',tag:'Poesía',note:'Me recuerda a ti porque a veces lo único que me sale es escribirte con canciones lo que no sé decir en voz alta.'},
-{id:'humbe-confieso',spotifyId:'6EgQ0qOpwA83iRDSFBNtUc',tag:'Confesión',note:'Me recuerda a ti porque hay sentimientos que se esconden… hasta que una canción los delata.'},
+{id:'humbe-confieso',spotifyId:'6EgQ0qOpwA83iRDSFBNtUc',tag:'Confesión',note:'Me recuerda a ti porque hay sentimientos que se expresan mejor con música que con palabras.'},
 {id:'humbe-patadas',spotifyId:'4WefXOf8I4gMjdj2kBJgkl',tag:'Caos',note:'Me recuerda a ti por cuando el corazón se pone necio y uno intenta con todo, aunque sea tarde.'},
 {id:'reik-creoenti',spotifyId:'1Tep3xsXYJgAhlQjMqUdkd',tag:'Confianza',note:'Me recuerda a ti por la confianza que se siente bonita: esa que te hace creer en alguien aunque el mundo vaya rápido.'},
 {id:'reik-meniego',spotifyId:'4ggiDYAkJ7Yk8d5xOr7Xjo',tag:'Difícil',note:'Me recuerda a ti por la parte difícil: cuando algo te importa y aun así no sabes cómo sostenerlo.'},
@@ -320,7 +311,7 @@ const songsData=[
 ];
 
 const secrets=[
-'Adi: gracias por coincidir. No sabes lo bonito que fue tenerte cerca.',
+'Tammie: gracias por coincidir. No sabes lo bonito que fue tenerte cerca.',
 'Si pudiera elegir un recuerdo tranquilo, elegiría uno contigo.',
 'No todo se queda, pero tú sí te quedaste en mi forma de ver las cosas.',
 'A veces una canción no es una canción: es un lugar al que vuelvo cuando te extraño.',

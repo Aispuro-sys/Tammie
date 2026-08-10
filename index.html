@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Adi ✦</title>
+<title>Para Tammie ✦</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -182,7 +182,7 @@ body{
   text-shadow:0 1px 12px rgba(0,0,0,0.2);
 }
 
-/* ─ COLLAGE DE ZORROS (debajo del video) ─ */
+/* ─ COLLAGE DE ROSAS (debajo del video) ─ */
 .fox-strip{
   position:relative;
   display:flex;align-items:flex-end;justify-content:center;
@@ -273,6 +273,11 @@ body{
   font-size:0.65rem;
   background:rgba(255,255,255,0.2);
   padding:1px 6px;border-radius:10px;
+}
+.nav-float .filter-coming-soon{
+  opacity:0.45;
+  cursor:not-allowed;
+  pointer-events:none;
 }
 
 /* ══════════════════════════════════
@@ -435,6 +440,24 @@ body{
 .fb-recuerdos{background:linear-gradient(135deg,#c9b4f9,#9a7ee0,#7050c8);}
 .fb-celebracion{background:linear-gradient(135deg,#f9e4b4,#e8c460,#c89430);}
 
+/* ── CARD BLOQUEADA (Próximamente) ── */
+.card-locked .card-img{
+  filter:blur(14px) grayscale(0.8) brightness(0.45);
+}
+.card-locked .card-img-fallback{
+  filter:blur(10px);opacity:0.6;
+}
+.card-locked .card-img-wrap::after{
+  content:'🔒';
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  font-size:2.2rem;
+  z-index:4;
+  pointer-events:none;
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+}
+
 /* ══════════════════════════════════
    FOOTER
 ══════════════════════════════════ */
@@ -526,30 +549,30 @@ body{
         <button class="filter-btn active" onclick="filterCards('all',this)">
           Todas <span class="filter-count" id="count-all">12</span>
         </button>
-        <button class="filter-btn" onclick="filterCards('principal',this)">
-          <span class="filter-dot"></span> Principal
+        <button class="filter-btn filter-coming-soon">
+          <span class="filter-dot"></span> Principal · Próximamente
         </button>
-        <button class="filter-btn" onclick="filterCards('amor',this)">
-          <span class="filter-dot"></span> Amor
+        <button class="filter-btn filter-coming-soon">
+          <span class="filter-dot"></span> Amor · Próximamente
         </button>
-        <button class="filter-btn" onclick="filterCards('recuerdos',this)">
-          <span class="filter-dot"></span> Recuerdos
+        <button class="filter-btn filter-coming-soon">
+          <span class="filter-dot"></span> Recuerdos · Próximamente
         </button>
-        <button class="filter-btn" onclick="filterCards('especial',this)">
-          <span class="filter-dot"></span> Especiales
+        <button class="filter-btn filter-coming-soon">
+          <span class="filter-dot"></span> Especiales · Próximamente
         </button>
-        <button class="filter-btn" onclick="filterCards('celebracion',this)">
-          <span class="filter-dot"></span> Celebración
+        <button class="filter-btn filter-coming-soon">
+          <span class="filter-dot"></span> Celebración · Próximamente
         </button>
       </nav>
 
-      <span class="video-tag">✦ Para Adi</span>
+      <span class="video-tag">✦ Para Tammie</span>
       <div class="video-overlay"></div>
 
       <!-- Texto sobre el video -->
       <div class="hero-over-video">
         <p class="hero-eyebrow">Un regalo hecho con el corazón</p>
-        <h1 class="hero-title">Para <em>Adi</em></h1>
+        <h1 class="hero-title">Para <em>Tammie</em></h1>
         <div class="hero-divider"><div class="divider-gem"></div></div>
         <p class="hero-sub">Cada página guarda algo que quiero que descubras...</p>
       </div>
@@ -585,7 +608,7 @@ body{
       </a>
 
       <!-- 2. CUMPLEAÑOS -->
-      <a class="card card-wide" href="birthdayM/Cumpleaños.html" data-cat="celebracion" style="animation-delay:.1s">
+      <a class="card card-wide" href="birthdayM/Cumpleaños.html" data-cat="celebracion" style="animation-delay:.1s; display:none">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 2.jpg"
@@ -604,7 +627,7 @@ body{
       </a>
 
       <!-- 3. PLAYLIST -->
-      <a class="card card-wide" href="playlist.html" data-cat="especial" style="animation-delay:.15s">
+      <a class="card card-wide" href="#" data-cat="especial" style="animation-delay:.15s" onclick="alert('Próximamente'); return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 3.jpg"
@@ -616,14 +639,14 @@ body{
           <div class="card-num">3</div>
         </div>
         <div class="card-body">
-          <div class="card-title">Playlist 2025</div>
+          <div class="card-title">Playlist 2026</div>
           <div class="card-desc">Nuestra playlist con las canciones más especiales.</div>
-          <div class="card-arrow">Escuchar →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
       <!-- 4. FLORES -->
-      <a class="card" href="flores.html" data-cat="especial" style="animation-delay:.2s">
+      <a class="card" href="#" data-cat="especial" style="animation-delay:.2s" onclick="alert('Próximamente'); return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 4.jpg"
@@ -637,12 +660,12 @@ body{
         <div class="card-body">
           <div class="card-title">Flores</div>
           <div class="card-desc">Un jardín digital lleno de flores hermosas para ti.</div>
-          <div class="card-arrow">Explorar →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
       <!-- 5. MOMENTOS -->
-      <a class="card" href="momentos.html" data-cat="recuerdos" style="animation-delay:.25s">
+      <a class="card" href="#" data-cat="recuerdos" style="animation-delay:.25s" onclick="alert('Próximamente'); return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 5.jpg"
@@ -656,12 +679,12 @@ body{
         <div class="card-body">
           <div class="card-title">Momentos</div>
           <div class="card-desc">Galería de nuestros momentos más preciados.</div>
-          <div class="card-arrow">Recordar →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
       <!-- 6. SAN VALENTÍN -->
-      <a class="card" href="sanvalentin.html" data-cat="amor" style="animation-delay:.3s">
+      <a class="card" href="sanvalentin.html" data-cat="amor" style="animation-delay:.3s; display:none">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 6.jpg"
@@ -679,27 +702,10 @@ body{
         </div>
       </a>
 
-      <!-- 7. CHAT PRIVADO -->
-      <a class="card" href="chat.html" data-cat="especial" style="animation-delay:.35s">
-        <div class="card-img-wrap">
-          <img class="card-img"
-               src="Imagenes/CARD 7.jpg"
-               alt="Chat"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="card-img-fallback fb-especial" style="display:none"></div>
-          <div class="card-img-overlay"></div>
-          <span class="card-badge">Especial</span>
-          <div class="card-num">7</div>
-        </div>
-        <div class="card-body">
-          <div class="card-title">Chat Privado</div>
-          <div class="card-desc">Nuestro espacio de chat personal.</div>
-          <div class="card-arrow">Abrir →</div>
-        </div>
-      </a>
+
 
       <!-- 8. MENSAJE ESPECIAL -->
-      <a class="card card-wide" href="mensaje.html" data-cat="amor" style="animation-delay:.4s">
+      <a class="card card-wide" href="#" data-cat="amor" style="animation-delay:.4s" onclick="alert('Próximamente'); return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 8.jpg"
@@ -713,7 +719,7 @@ body{
         <div class="card-body">
           <div class="card-title">Mensaje Especial</div>
           <div class="card-desc">Un mensaje muy especial, escrito solo para ti.</div>
-          <div class="card-arrow">Leer →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
@@ -722,7 +728,7 @@ body{
 
 
       <!-- 9. FLORES AMARILLAS -->
-      <a class="card" href="#" data-cat="recuerdos" style="animation-delay:.45s" onclick="alert('Estamos trabajando en ello 💛'); return false;">
+      <a class="card" href="#" data-cat="recuerdos" style="animation-delay:.45s" onclick="alert('Próximamente'); return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 9.jpg"
@@ -736,7 +742,7 @@ body{
         <div class="card-body">
           <div class="card-title">Flores amarillas</div>
           <div class="card-desc">Como el sol que ilumina mis días.</div>
-          <div class="card-arrow">Pronto →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
@@ -755,28 +761,11 @@ body{
         <div class="card-body">
           <div class="card-title">Corazón</div>
           <div class="card-desc">Late más fuerte cuando estás cerca.</div>
-          <div class="card-arrow">Pronto →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
-      <!-- 11. ZORRO DE NIEVE -->
-      <a class="card" href="#" data-cat="especial" style="animation-delay:.55s" onclick="alert('Estamos trabajando en ello 🦊'); return false;">
-        <div class="card-img-wrap">
-          <img class="card-img"
-               src="Imagenes/CARD 11.jpg"
-               alt="Zorro de nieve"
-               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="card-img-fallback fb-especial" style="display:none"></div>
-          <div class="card-img-overlay"></div>
-          <span class="card-badge">Especial</span>
-          <div class="card-num">11</div>
-        </div>
-        <div class="card-body">
-          <div class="card-title">Zorro de nieve</div>
-          <div class="card-desc">Tan especial y único como tú.</div>
-          <div class="card-arrow">Pronto →</div>
-        </div>
-      </a>
+
 
       <!-- 12. VIDEO PLAYER -->
       <a class="card" href="#" data-cat="amor" style="animation-delay:.6s" onclick="alert('Estamos trabajando en ello 🎬'); return false;">
@@ -793,7 +782,7 @@ body{
         <div class="card-body">
           <div class="card-title">Video Player</div>
           <div class="card-desc">Nuestros momentos en movimiento.</div>
-          <div class="card-arrow">Pronto →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
@@ -812,7 +801,7 @@ body{
         <div class="card-body">
           <div class="card-title">Futuro</div>
           <div class="card-desc">Todo lo que vendrá juntos.</div>
-          <div class="card-arrow">Pronto →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
@@ -831,7 +820,7 @@ body{
         <div class="card-body">
           <div class="card-title">Cartas</div>
           <div class="card-desc">Palabras escritas con el corazón.</div>
-          <div class="card-arrow">Pronto →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
@@ -850,7 +839,7 @@ body{
         <div class="card-body">
           <div class="card-title">Aventuras</div>
           <div class="card-desc">Cada día contigo es una aventura.</div>
-          <div class="card-arrow">Pronto →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
@@ -869,7 +858,7 @@ body{
         <div class="card-body">
           <div class="card-title">Razones para amarte</div>
           <div class="card-desc">Una lista que podría ser infinita.</div>
-          <div class="card-arrow">Pronto →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
@@ -888,12 +877,12 @@ body{
         <div class="card-body">
           <div class="card-title">Sueños juntos</div>
           <div class="card-desc">Los futuros que imagino a tu lado.</div>
-          <div class="card-arrow">Pronto →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
       <!-- 18. PARA SIEMPRE -->
-      <a class="card" href="#" data-cat="amor" style="animation-delay:.9s" onclick="alert('Estamos trabajando en ello 🫶'); return false;">
+      <a class="card" href="#" data-cat="amor" style="animation-delay:.9s; display:none" onclick="alert('Estamos trabajando en ello 🫶'); return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 18.jpg"
@@ -907,7 +896,7 @@ body{
         <div class="card-body">
           <div class="card-title">Para siempre</div>
           <div class="card-desc">La última carta. La más importante de todas.</div>
-          <div class="card-arrow">Pronto →</div>
+          <div class="card-arrow">Próximamente →</div>
         </div>
       </a>
 
@@ -916,8 +905,8 @@ body{
 
   <!-- ══════════ FOOTER ══════════ -->
   <footer class="footer">
-    <div class="footer-foxes">🦊 🌸 🦊</div>
-    <p class="footer-text">Hecho con todo el amor del mundo, solo para ti, Adi.</p>
+    <div class="footer-foxes">🌹 🌸 🌹</div>
+    <p class="footer-text">Hecho con todo el amor del mundo, solo para ti, Tammie.</p>
     <div class="footer-hearts">
       <span style="animation-delay:0s">♥</span>
       <span style="animation-delay:.4s">♥</span>
@@ -929,6 +918,22 @@ body{
 </div>
 
 <script>
+/* Bloquear tarjetas próximamente */
+document.querySelectorAll('.card').forEach(function(card){
+  if(card.getAttribute('href')==='#' && card.getAttribute('onclick') && card.getAttribute('onclick').indexOf('alert')!==-1){
+    card.classList.add('card-locked');
+    card.setAttribute('onclick',"return false;");
+    var title=card.querySelector('.card-title');
+    if(title) title.textContent='Próximamente';
+    var desc=card.querySelector('.card-desc');
+    if(desc) desc.textContent='Algo especial se está preparando para ti.';
+    var arrow=card.querySelector('.card-arrow');
+    if(arrow) arrow.textContent='Próximamente →';
+    var img=card.querySelector('.card-img');
+    if(img) img.setAttribute('alt','Próximamente');
+  }
+});
+
 /* Pétalos */
 (function(){
   const c = document.getElementById('petals-container');

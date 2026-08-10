@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Para Adi 🦊✨</title>
+<title>Para Tammie 🌹✨</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 
@@ -161,7 +161,7 @@ body.easter .content-card {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.content-header { text-align: center; margin-bottom: 2.5rem; }
+.content-header { text-align: center; margin-bottom: 2.5rem; position: relative; }
 
 .content-badge {
   display: inline-block;
@@ -180,13 +180,26 @@ body.easter .content-card {
   font-size: 2.8rem; font-weight: 300; line-height: 1.2;
   color: var(--text-main); margin-bottom: 0.5rem;
   transition: color 1s ease;
+  position: relative;
 }
 
 .content-title em { font-style: italic; color: var(--rose); }
 
+.content-title-ornament {
+  display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+  margin-top: 0.8rem; opacity: 0.5;
+}
+.content-title-ornament::before,
+.content-title-ornament::after {
+  content: ''; width: 40px; height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+.content-title-ornament span { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.3em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-weight: 400; }
+
 .content-subtitle {
   font-size: 1rem; color: var(--text-muted); letter-spacing: 0.05em;
   font-weight: 300; transition: color 1s ease;
+  font-style: italic;
 }
 
 .divider {
@@ -201,25 +214,46 @@ body.easter .content-card {
 
 .message {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem; line-height: 1.8;
+  font-size: 1.22rem; line-height: 1.85;
   color: var(--text-main); margin-bottom: 1.5rem;
   text-align: center; font-weight: 300;
   transition: color 1s ease;
+  letter-spacing: 0.01em;
 }
 .message strong { color: var(--gold); font-weight: 500; transition: color 1s ease; }
+.message em { color: var(--rose); font-style: italic; }
+
+.message-first-letter::first-letter {
+  font-size: 3rem; font-weight: 600; float: left;
+  line-height: 1; padding: 0.3rem 0.6rem 0 0;
+  color: var(--gold); font-style: italic;
+}
 
 .quote {
   font-style: italic; font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem; color: var(--text-muted);
-  text-align: center; margin: 3rem 0; padding: 2rem;
+  text-align: center; margin: 3rem 0; padding: 2rem 2.5rem;
   position: relative;
   transition: color 1s ease;
+  border-left: 2px solid rgba(var(--accent-glow), 0.2);
+  border-right: 2px solid rgba(var(--accent-glow), 0.2);
 }
 .quote::before {
-  content: '"';
-  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  content: '\201C';
+  position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
   font-size: 4rem; color: rgba(var(--accent-glow), 0.15);
   font-family: serif; line-height: 1;
+}
+.quote::after {
+  content: '\201D';
+  position: absolute; bottom: -35px; left: 50%; transform: translateX(-50%);
+  font-size: 4rem; color: rgba(var(--accent-glow), 0.15);
+  font-family: serif; line-height: 1;
+}
+.quote-author {
+  display: block; margin-top: 1.5rem; font-size: 0.85rem;
+  font-style: normal; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); opacity: 0.7; font-family: 'Jost', sans-serif;
 }
 
 .footer {
@@ -329,7 +363,7 @@ body.easter .spark {
 </head>
 <body>
 
-<a href="menu_adi_v2.html" class="nav-back">
+<a href="index.html" class="nav-back">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <path d="M19 12H5M12 19l-7-7 7-7"/>
   </svg>
@@ -339,44 +373,49 @@ body.easter .spark {
 <div class="page">
   <div class="content-card">
     <header class="content-header">
-      <span class="content-badge">✦ Especial para ti ✦</span>
-      <h2 class="content-title">Un detalle pequeño</h2>
-      <p class="content-subtitle">con una intención enorme.</p>
+      <span class="content-badge">✦ Para Tammie ✦</span>
+      <h2 class="content-title">Una <em>segunda oportunidad</em></h2>
+      <div class="content-title-ornament"><span>✦</span></div>
+      <p class="content-subtitle">y la promesa de no soltarla nunca más.</p>
     </header>
 
     <div class="divider"><span class="divider-icon">✦</span></div>
 
-    <p class="message">
-      Hay personas que no pasan por la vida sin dejar huella. Personas cuya presencia suaviza los días, 
-      que sin proponérselo cambian el ritmo de las cosas y hacen que todo se sienta un poco más vivo. 
-      <strong>Tú eres una de ellas.</strong>
+    <p class="message message-first-letter">
+      Hay personas que marcan tu vida de tal forma que, incluso cuando el tiempo las aleja, nunca dejan de estar
+      presentes. Personas cuya ausencia enseña más que mil presencias, y cuyo regreso siente como si el mundo
+      por fin volviera a encajar. <strong>Tú eres esa persona para mí.</strong>
     </p>
 
     <p class="message">
-      Y por eso quise regalarte algo que hablara sin prisa, algo que reflejara lo que despiertas en mí 
-      cuando las palabras se quedan cortas.
+      Dicen que las segundas oportunidades no se regalan, se ganan. Y tú, sin que te lo pidiera, me diste la más
+      importante de todas: <em>la oportunidad de volver a estar a tu lado.</em> No fue un gesto pequeño. Fue
+      decidir, con toda la valentía que te caracteriza, que lo nuestro merecía otra historia.
     </p>
 
-    <div class="divider"><span class="divider-icon">🦊</span></div>
+    <div class="divider"><span class="divider-icon">💍</span></div>
 
     <p class="message">
-      <strong>La lámpara de zorro</strong> es para ti porque los zorros no solo son bellos: son sabios, atentos, 
-      leales y silenciosamente fuertes. Como tú. Que su luz te acompañe en las noches largas, en los momentos 
-      de cansancio, y que te recuerde que incluso en la oscuridad siempre hay algo que puede brillar por ti. 
-      Una luz discreta, constante, de esas que no deslumbran, pero permanecen.
+      Por eso te di <strong>el anillo de promesa.</strong> No es solo un objeto, no es solo un detalle: es
+      la promesa más sincera que he hecho en mi vida. Es decirte, con algo que llevas contigo todos los días,
+      que <em>estoy aquí para quedarme.</em> Que cada vez que mires tu mano recuerdes que alguien te eligió
+      antes, te elige ahora y te seguirá eligiendo siempre.
     </p>
 
     <p class="message">
-      <strong>La agenda</strong> es un espacio solo tuyo. Un lugar para ordenar ideas, guardar planes y dejar 
-      huella de los días que importan. Que cada palabra escrita sea una forma de cuidarte y de avanzar hacia 
-      lo que deseas, a tu tiempo, a tu manera.
+      Porque la verdad es que <strong>no imagino mi vida sin ti.</strong> Estoy profundamente feliz de estar
+      contigo nuevamente, de recuperar el tiempo, de reconstruir lo que un día fuimos y hacerlo aún más fuerte.
+      Tres años de historia <em>(aunque tú digas que son dos, y me hagas reír cada vez que lo discutimos)</em>
+      no se borran con un silencio. Se transforman. Y lo nuestro se transformó en algo más maduro, más honesto,
+      más nuestro.
     </p>
 
-    <div class="divider"><span class="divider-icon">🔥</span></div>
+    <div class="divider"><span class="divider-icon">🌹</span></div>
 
     <div class="quote">
-      Jugar con fuego es aceptar la danza del riesgo, sabiendo que, en cada chispa, hay un peligro 
-      que arde en el alma y puede dejar cicatrices.
+      A veces el amor no se trata de encontrar a la persona correcta, sino de que ella te encuentre de nuevo,
+      en el momento exacto, y decida quedarse.
+      <span class="quote-author">— Para Tammie, con todo</span>
     </div>
 
     <div class="actions">
@@ -390,7 +429,7 @@ body.easter .spark {
 
     <div class="footer">
       <p>
-        Con cariño sincero,<br>
+        Con todo mi amor, hoy y siempre,<br>
         <strong>Luis Eduardo Aispuro</strong>
       </p>
     </div>
@@ -400,7 +439,7 @@ body.easter .spark {
 <div class="modal" id="modal" aria-hidden="true" role="dialog">
   <div class="modal-card">
     <div class="modal-icon" id="modalIcon" title="¡Haz triple click!">
-      <img src="Zorros/zorro sin fondo.png" alt="Zorrito">
+      <img src="Images/flor_luminosa.png" alt="Zorrito">
     </div>
     <h2 class="modal-title" id="modalTitle">Para cuando lo necesites</h2>
     <p class="modal-text" id="modalText">Si algún día te pesa el mundo, acuérdate de esto: no tienes que brillar fuerte para ser luz. Con que sigas siendo tú, ya estás haciendo algo precioso.</p>
@@ -429,7 +468,7 @@ body.easter .spark {
   function sparkAt(x, y, n=12){
     const isEaster = document.body.classList.contains('easter');
     const glyphs = isEaster 
-      ? ['✨','✦','✧','⋆','🦊','💫','⭐','🌟']
+      ? ['✨','✦','✧','⋆','🌹','💫','⭐','🌟']
       : ['✨','✦','✧','⋆','💕','🌟'];
     
     for(let i=0; i<n; i++){
@@ -479,8 +518,8 @@ body.easter .spark {
     if(foxClicks === 3){
       foxClicks = 0;
       const isEaster = document.body.classList.toggle('easter');
-      modalTitle.textContent = 'Un secreto más...';
-      modalText.textContent = 'Que este pequeño zorro te recuerde que lo especial a veces está escondido a simple vista. Eres increíble por encontrar este secreto. 💕🦊';
+      modalTitle.textContent = 'Un regalo especial...';
+      modalText.textContent = 'Eres increíble por siempre estar atenta a los detalles. Que esta rosa te recuerde que lo más bonito a veces está a simple vista. 💕🌹';
       sparkAt(e.clientX, e.clientY, 30);
     }
   });
