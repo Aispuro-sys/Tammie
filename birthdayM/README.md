@@ -75,5 +75,4 @@ Al inicio del `<style>` encontrarás las variables de color:
 --gold:      #d4a843;   /* acentos dorados */
 --amber:     #e8c06a;   /* textos destacados */
 --blush:     #e8a87c;   /* subtítulos */
---fox-orange:#e07430;   /* zorros */
 ```

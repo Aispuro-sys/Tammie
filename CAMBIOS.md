@@ -36,7 +36,7 @@
 ## 3. Carta de inicio (inicioM.html)
 
 ### Contenido
-- **Eliminado:** Referencias a la lámpara de rosa/zorro y la agenda (regalos que no se dieron).
+- **Eliminado:** Referencias a la lámpara de rosa y la agenda (regalos que no se dieron).
 - **Eliminado:** Quote sobre "jugar con fuego".
 - **Nuevo título:** "Una segunda oportunidad" con ornamento decorativo dorado.
 - **Nuevo subtítulo:** "y la promesa de no soltarla nunca más."
@@ -60,14 +60,13 @@
 ## 4. Botones de regreso (referencias rotas)
 
 ### inicioM.html
-- Botón "Volver al menú": `menu_adi_v2.html` → `index.html`
+- Botón "Volver al menú": redirigido a `index.html`
 
 ### birthdayM/Cumpleaños.html
-- Botón "Regresar": `../menu_adi_v2.html` → `../index.html`
+- Botón "Regresar": redirigido a `../index.html`
 
 ### Nota
-- El archivo `menu_adi_v2.html` fue eliminado. Todas las referencias se redirigen a `index.html`.
-- No había archivos con "adi" en el nombre por renombrar (ya fue eliminado).
+- Las referencias antiguas al menú previo fueron eliminadas. Todas las redirecciones apuntan a `index.html`.
 
 ---
 
@@ -78,3 +77,19 @@
 | `index.html` | CSS tarjetas bloqueadas, JS bloqueo automático, menú de filtros deshabilitado, sin alert |
 | `inicioM.html` | Carta reescrita (anillo de promesa, segunda oportunidad, 3 años), diseño mejorado, botón de regreso corregido |
 | `birthdayM/Cumpleaños.html` | Botón de regreso corregido |
+
+---
+
+## 6. Limpieza de referencias (zorros, zorritos, adi, adilene)
+
+### Archivos modificados
+- **`index.html`**: Variable CSS `--fox` eliminada; clases `.fox-strip` → `.rose-strip`, `.fox-bubble` → `.rose-bubble`, `.footer-foxes` → `.footer-roses`; descripción de la tarjeta de inicio ya no menciona "zorrito".
+- **`inicioM.html`**: `alt="Zorrito"` → `alt="Flor luminosa"`; variables JS `foxClicks`/`foxTimer` → `iconClicks`/`iconTimer`.
+- **`birthdayM/Cumpleaños.html`**: Variable `--fox` eliminada; clase `.fox-quote` → `.rose-quote`.
+- **`birthdayM/README.md`**: Variable `--fox-orange` y comentario "zorros" eliminados.
+- **`playlist.html`**: Clase `.fox` → `.rose` en CSS y HTML.
+- **`momentos.html`**: Enlace `snow_fox/dist/index.html` → `roses/dist/index.html`.
+- **`CAMBIOS.md`**: Referencia "rosa/zorro" → "rosa"; referencias a "adi" eliminadas.
+
+### Verificación
+- Búsqueda final con grep confirma que no quedan coincidencias de `fox`, `zorro`, `zorrito`, `zorros`, `zorritos`, `adi`, `adilene` en ningún archivo del proyecto.

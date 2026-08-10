@@ -15,7 +15,6 @@
   --rose-pale:#fbe8ec;
   --gold:#c49a56;
   --gold-light:#e8d4a8;
-  --fox:#e8874a;
   --ink:#2d1f1f;
   --ink-soft:#7a5a5a;
   --ink-muted:#b09090;
@@ -183,7 +182,7 @@ body{
 }
 
 /* ─ COLLAGE DE ROSAS (debajo del video) ─ */
-.fox-strip{
+.rose-strip{
   position:relative;
   display:flex;align-items:flex-end;justify-content:center;
   gap:0;
@@ -191,7 +190,7 @@ body{
   padding:0 2rem 0.5rem;
   z-index:3;
 }
-.fox-bubble{
+.rose-bubble{
   background:var(--white);
   border:2px solid var(--rose-pale);
   border-radius:50%;
@@ -203,18 +202,18 @@ body{
   transition:transform 0.3s ease;
   flex-shrink:0;
 }
-.fox-bubble:hover{transform:translateY(-8px) scale(1.05);}
-.fox-bubble.main{
+.rose-bubble:hover{transform:translateY(-8px) scale(1.05);}
+.rose-bubble.main{
   width:110px;height:110px;
   border-color:var(--rose);
   border-width:3px;
   z-index:2;
   background:var(--rose-pale);
 }
-.fox-bubble svg{width:65%;height:65%;}
-.fox-bubble.main svg{width:70%;height:70%;}
+.rose-bubble svg{width:65%;height:65%;}
+.rose-bubble.main svg{width:70%;height:70%;}
 
-/* ─ HEADLINE BAJO EL FOX STRIP ─ */
+/* ─ HEADLINE BAJO EL ROSE STRIP ─ */
 .hero-bottom{
   text-align:center;
   padding:2.5rem 2rem 3rem;
@@ -466,7 +465,7 @@ body{
   padding:2rem 1.5rem 3rem;
   border-top:1px solid rgba(212,118,138,0.12);
 }
-.footer-foxes{
+.footer-roses{
   display:flex;justify-content:center;gap:0.5rem;
   margin-bottom:0.8rem;
   font-size:1.4rem;
@@ -607,7 +606,7 @@ body{
         </div>
         <div class="card-body">
           <div class="card-title">Inicio</div>
-          <div class="card-desc">El comienzo de todo. La página principal con el zorrito y los efectos mágicos que hice pensando en ti.</div>
+          <div class="card-desc">El comienzo de todo. La página principal con los efectos mágicos que hice pensando en ti.</div>
           <div class="card-arrow">Entrar →</div>
         </div>
       </a>
@@ -906,7 +905,7 @@ body{
 
   <!-- ══════════ FOOTER ══════════ -->
   <footer class="footer">
-    <div class="footer-foxes">🌹 🌸 🌹</div>
+    <div class="footer-roses">🌹 🌸 🌹</div>
     <p class="footer-text">Hecho con todo el amor del mundo, solo para ti, Tammie.</p>
     <div class="footer-hearts">
       <span style="animation-delay:0s">♥</span>

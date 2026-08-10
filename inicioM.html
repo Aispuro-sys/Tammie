@@ -444,7 +444,7 @@ body.easter .spark {
 <div class="modal" id="modal" aria-hidden="true" role="dialog">
   <div class="modal-card">
     <div class="modal-icon" id="modalIcon" title="¡Haz triple click!">
-      <img src="Images/flor_luminosa.png" alt="Zorrito">
+      <img src="Images/flor_luminosa.png" alt="Flor luminosa">
     </div>
     <h2 class="modal-title" id="modalTitle">Para cuando lo necesites</h2>
     <p class="modal-text" id="modalText">Si algún día te pesa el mundo, acuérdate de esto: no tienes que brillar fuerte para ser luz. Con que sigas siendo tú, ya estás haciendo algo precioso.</p>
@@ -513,15 +513,15 @@ body.easter .spark {
     sparkAt(e.clientX, e.clientY, 15);
   });
 
-  let foxClicks = 0, foxTimer = 0;
+  let iconClicks = 0, iconTimer = 0;
   modalIcon.addEventListener('click', (e) => {
-    foxClicks++;
-    clearTimeout(foxTimer);
-    foxTimer = setTimeout(() => foxClicks = 0, 500);
+    iconClicks++;
+    clearTimeout(iconTimer);
+    iconTimer = setTimeout(() => iconClicks = 0, 500);
     sparkAt(e.clientX, e.clientY, 5);
 
-    if(foxClicks === 3){
-      foxClicks = 0;
+    if(iconClicks === 3){
+      iconClicks = 0;
       const isEaster = document.body.classList.toggle('easter');
       modalTitle.textContent = 'Un regalo especial...';
       modalText.textContent = 'Eres increíble por siempre estar atenta a los detalles. Que esta rosa te recuerde que lo más bonito a veces está a simple vista. 💕🌹';
