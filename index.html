@@ -552,7 +552,7 @@ body{
       <!-- Navegación flotante sobre el video -->
       <nav class="nav-float">
         <button class="filter-btn active" onclick="filterCards('all',this)">
-          Todas <span class="filter-count" id="count-all">12</span>
+          Todas <span class="filter-count" id="count-all">13</span>
         </button>
         <button class="filter-btn filter-coming-soon">
           <span class="filter-dot"></span> Principal · Próximamente
@@ -588,7 +588,7 @@ body{
   <main class="section">
     <div class="section-header">
       <span class="section-label">Explora</span>
-      <span class="section-count" id="visible-count">12 secciones disponibles</span>
+      <span class="section-count" id="visible-count">13 secciones disponibles</span>
     </div>
 
     <div class="cards-grid" id="cards-grid">
@@ -632,7 +632,7 @@ body{
       </a>
 
       <!-- 3. PLAYLIST -->
-      <a class="card card-wide" href="#" data-cat="especial" style="animation-delay:.15s" onclick="alert('Próximamente'); return false;">
+      <a class="card card-wide" href="#" data-cat="especial" style="animation-delay:.15s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 3.jpg"
@@ -651,7 +651,7 @@ body{
       </a>
 
       <!-- 4. FLORES -->
-      <a class="card" href="#" data-cat="especial" style="animation-delay:.2s" onclick="alert('Próximamente'); return false;">
+      <a class="card" href="#" data-cat="especial" style="animation-delay:.2s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 4.jpg"
@@ -670,7 +670,7 @@ body{
       </a>
 
       <!-- 5. MOMENTOS -->
-      <a class="card" href="#" data-cat="recuerdos" style="animation-delay:.25s" onclick="alert('Próximamente'); return false;">
+      <a class="card" href="#" data-cat="recuerdos" style="animation-delay:.25s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 5.jpg"
@@ -709,8 +709,8 @@ body{
 
 
 
-      <!-- 8. MENSAJE ESPECIAL -->
-      <a class="card card-wide" href="#" data-cat="amor" style="animation-delay:.4s" onclick="alert('Próximamente'); return false;">
+      <!-- 6. MENSAJE ESPECIAL -->
+      <a class="card card-wide" href="#" data-cat="amor" style="animation-delay:.4s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 8.jpg"
@@ -719,7 +719,7 @@ body{
           <div class="card-img-fallback fb-amor" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Amor</span>
-          <div class="card-num">8</div>
+          <div class="card-num">6</div>
         </div>
         <div class="card-body">
           <div class="card-title">Mensaje Especial</div>
@@ -728,21 +728,17 @@ body{
         </div>
       </a>
 
-
-
-
-
-      <!-- 9. FLORES AMARILLAS -->
-      <a class="card" href="#" data-cat="recuerdos" style="animation-delay:.45s" onclick="alert('Próximamente'); return false;">
+      <!-- 7. FLORES AMARILLAS -->
+      <a class="card" href="#" data-cat="recuerdos" style="animation-delay:.45s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 9.jpg"
                alt="Flores amarillas"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="card-img-fallback fb-recuerdos" style="display:none">�</div>
+          <div class="card-img-fallback fb-recuerdos" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Recuerdos</span>
-          <div class="card-num">9</div>
+          <div class="card-num">7</div>
         </div>
         <div class="card-body">
           <div class="card-title">Flores amarillas</div>
@@ -751,8 +747,8 @@ body{
         </div>
       </a>
 
-      <!-- 10. CORAZÓN -->
-      <a class="card" href="#" data-cat="amor" style="animation-delay:.5s" onclick="alert('Estamos trabajando en ello ❤️'); return false;">
+      <!-- 8. CORAZÓN -->
+      <a class="card" href="#" data-cat="amor" style="animation-delay:.5s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 10.jpg"
@@ -761,7 +757,7 @@ body{
           <div class="card-img-fallback fb-amor" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Amor</span>
-          <div class="card-num">10</div>
+          <div class="card-num">8</div>
         </div>
         <div class="card-body">
           <div class="card-title">Corazón</div>
@@ -772,8 +768,8 @@ body{
 
 
 
-      <!-- 12. VIDEO PLAYER -->
-      <a class="card" href="#" data-cat="amor" style="animation-delay:.6s" onclick="alert('Estamos trabajando en ello 🎬'); return false;">
+      <!-- 9. VIDEO PLAYER -->
+      <a class="card" href="#" data-cat="amor" style="animation-delay:.6s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 12.jpg"
@@ -782,7 +778,7 @@ body{
           <div class="card-img-fallback fb-amor" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Amor</span>
-          <div class="card-num">12</div>
+          <div class="card-num">9</div>
         </div>
         <div class="card-body">
           <div class="card-title">Video Player</div>
@@ -791,17 +787,17 @@ body{
         </div>
       </a>
 
-      <!-- 13. FUTURO -->
-      <a class="card" href="#" data-cat="especial" style="animation-delay:.65s" onclick="alert('Estamos trabajando en ello 🌟'); return false;">
+      <!-- 10. FUTURO -->
+      <a class="card" href="#" data-cat="especial" style="animation-delay:.65s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 13.jpg"
                alt="Futuro"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="card-img-fallback fb-especial" style="display:none">🌟</div>
+          <div class="card-img-fallback fb-especial" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Especial</span>
-          <div class="card-num">13</div>
+          <div class="card-num">10</div>
         </div>
         <div class="card-body">
           <div class="card-title">Futuro</div>
@@ -810,17 +806,17 @@ body{
         </div>
       </a>
 
-      <!-- 14. CARTAS -->
-      <a class="card" href="#" data-cat="amor" style="animation-delay:.7s" onclick="alert('Estamos trabajando en ello 💌'); return false;">
+      <!-- 11. CARTAS -->
+      <a class="card" href="#" data-cat="amor" style="animation-delay:.7s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 14.jpg"
                alt="Cartas"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="card-img-fallback fb-amor" style="display:none">💌</div>
+          <div class="card-img-fallback fb-amor" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Amor</span>
-          <div class="card-num">14</div>
+          <div class="card-num">11</div>
         </div>
         <div class="card-body">
           <div class="card-title">Cartas</div>
@@ -829,17 +825,17 @@ body{
         </div>
       </a>
 
-      <!-- 15. AVENTURAS -->
-      <a class="card" href="#" data-cat="recuerdos" style="animation-delay:.75s" onclick="alert('Estamos trabajando en ello 🗺️'); return false;">
+      <!-- 12. AVENTURAS -->
+      <a class="card" href="#" data-cat="recuerdos" style="animation-delay:.75s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 15.jpg"
                alt="Aventuras"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="card-img-fallback fb-recuerdos" style="display:none">🗺️</div>
+          <div class="card-img-fallback fb-recuerdos" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Recuerdos</span>
-          <div class="card-num">15</div>
+          <div class="card-num">12</div>
         </div>
         <div class="card-body">
           <div class="card-title">Aventuras</div>
@@ -848,17 +844,17 @@ body{
         </div>
       </a>
 
-      <!-- 16. RAZONES PARA AMARTE -->
-      <a class="card" href="#" data-cat="amor" style="animation-delay:.8s" onclick="alert('Estamos trabajando en ello 💝'); return false;">
+      <!-- 13. RAZONES PARA AMARTE -->
+      <a class="card" href="#" data-cat="amor" style="animation-delay:.8s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 16.jpg"
                alt="Razones para amarte"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="card-img-fallback fb-amor" style="display:none">💝</div>
+          <div class="card-img-fallback fb-amor" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Amor</span>
-          <div class="card-num">16</div>
+          <div class="card-num">13</div>
         </div>
         <div class="card-body">
           <div class="card-title">Razones para amarte</div>
@@ -867,17 +863,17 @@ body{
         </div>
       </a>
 
-      <!-- 17. SUEÑOS JUNTOS -->
-      <a class="card" href="#" data-cat="especial" style="animation-delay:.85s" onclick="alert('Estamos trabajando en ello ✨'); return false;">
+      <!-- 14. SUEÑOS JUNTOS -->
+      <a class="card" href="#" data-cat="especial" style="animation-delay:.85s" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 17.jpg"
                alt="Sueños juntos"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="card-img-fallback fb-especial" style="display:none">✨</div>
+          <div class="card-img-fallback fb-especial" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Especial</span>
-          <div class="card-num">17</div>
+          <div class="card-num">14</div>
         </div>
         <div class="card-body">
           <div class="card-title">Sueños juntos</div>
@@ -886,17 +882,17 @@ body{
         </div>
       </a>
 
-      <!-- 18. PARA SIEMPRE -->
-      <a class="card" href="#" data-cat="amor" style="animation-delay:.9s; display:none" onclick="alert('Estamos trabajando en ello 🫶'); return false;">
+      <!-- 15. PARA SIEMPRE -->
+      <a class="card" href="#" data-cat="amor" style="animation-delay:.9s; display:none" onclick="return false;">
         <div class="card-img-wrap">
           <img class="card-img"
                src="Imagenes/CARD 18.jpg"
                alt="Para siempre"
                onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-          <div class="card-img-fallback fb-amor" style="display:none">🫶</div>
+          <div class="card-img-fallback fb-amor" style="display:none"></div>
           <div class="card-img-overlay"></div>
           <span class="card-badge">Amor</span>
-          <div class="card-num">18</div>
+          <div class="card-num">15</div>
         </div>
         <div class="card-body">
           <div class="card-title">Para siempre</div>
@@ -925,9 +921,8 @@ body{
 <script>
 /* Bloquear tarjetas próximamente */
 document.querySelectorAll('.card').forEach(function(card){
-  if(card.getAttribute('href')==='#' && card.getAttribute('onclick') && card.getAttribute('onclick').indexOf('alert')!==-1){
+  if(card.getAttribute('href')==='#' && card.getAttribute('onclick') && card.getAttribute('onclick').indexOf('return false')!==-1){
     card.classList.add('card-locked');
-    card.setAttribute('onclick',"return false;");
     var title=card.querySelector('.card-title');
     if(title) title.textContent='Próximamente';
     var desc=card.querySelector('.card-desc');
