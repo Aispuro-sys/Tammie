@@ -523,11 +523,6 @@ body{
 </head>
 <body>
 
-<!-- Audio de fondo: One Thing - One Direction -->
-<audio id="bgMusic" loop preload="auto" autoplay>
-  <source src="music/One Direction - One Thing.mp3" type="audio/mpeg">
-</audio>
-
 <!-- FONDO -->
 <div class="bg-canvas">
   <div class="bg-blob blob1"></div>
@@ -1071,19 +1066,6 @@ document.querySelectorAll('.card').forEach(c=>{
   c.style.animationPlayState='paused';
   obs.observe(c);
 });
-/* Audio autoplay workaround */
-(function(){
-  var audio = document.getElementById('bgMusic');
-  if(!audio) return;
-  audio.volume = 0.35;
-  var playAttempt = function(){
-    audio.play().catch(function(){});
-  };
-  playAttempt();
-  document.addEventListener('click', playAttempt, { once: false });
-  document.addEventListener('touchstart', playAttempt, { once: false });
-  document.addEventListener('keydown', playAttempt, { once: false });
-})();
 </script>
 </body>
 </html>

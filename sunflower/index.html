@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flores Amarillas — Para Tammie 🌻</title>
+    <script>
+        // Resolver ruta base para que los assets relativos funcionen en Vercel (cleanUrls) y local
+        (function(){
+            var path = window.location.pathname;
+            // Si termina en /sunflower o /sunflower/ (clean URL sin index.html)
+            if (/\/sunflower\/?$/.test(path) && !/index\.html$/.test(path)) {
+                document.write('<base href="/sunflower/">');
+            }
+        })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
