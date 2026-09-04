@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas — Para Tammie 🌻</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+
+        :root{
+            --cream:#fdf6ee;
+            --cream-deep:#f7ece0;
+            --gold:#c49a56;
+            --gold-light:#e8d4a8;
+            --gold-pale:#f7eccf;
+            --sun:#e8a849;
+            --sun-light:#f5c862;
+            --sun-deep:#c9893a;
+            --sun-dark:#a86828;
+            --ink:#2d1f1f;
+            --ink-soft:#7a5a5a;
+            --ink-muted:#b09090;
+            --white:#ffffff;
+            --paper:#fffef9;
+            --paper-deep:#fdf8e8;
+            --shadow-sun:rgba(201,137,58,0.22);
+            --shadow-soft:rgba(139,119,87,0.15);
+        }
+
+        html{scroll-behavior:smooth}
+        body{
+            font-family:'Jost',sans-serif;
+            background:var(--cream);
+            color:var(--ink);
+            min-height:100vh;
+            overflow-x:hidden;
+            line-height:1.6;
+        }
+
+        /* ══════════ FONDO ══════════ */
+        .bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+        .bg-blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:0.22;animation:blobDrift 22s ease-in-out infinite alternate;}
+        .blob1{width:650px;height:550px;background:#fde5b8;top:-120px;right:-180px;animation-duration:26s;}
+        .blob2{width:550px;height:450px;background:#f5c6cb;bottom:-100px;left:-140px;animation-duration:30s;animation-direction:alternate-reverse;}
+        .blob3{width:380px;height:380px;background:#fdebd0;top:40%;left:50%;transform:translate(-50%,-50%);animation-duration:24s;}
+        @keyframes blobDrift{0%{transform:translate(0,0) scale(1);}100%{transform:translate(40px,-25px) scale(1.1);}}
+
+        .petals-layer{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+        .petal{position:absolute;top:-30px;opacity:0;animation:petalFall linear infinite;}
+        @keyframes petalFall{
+            0%{transform:translateY(0) rotate(0deg);opacity:0}
+            5%{opacity:.45}
+            95%{opacity:.25}
+            100%{transform:translateY(105vh) rotate(400deg);opacity:0}
+        }
+
+        /* ══════════ NAV BACK ══════════ */
+        .nav-back{
+            position:fixed;top:20px;left:20px;z-index:10001;
+            display:flex;align-items:center;gap:6px;
+            padding:10px 18px;border-radius:100px;
+            background:var(--white);
+            border:1px solid var(--gold-light);
+            color:var(--ink-soft);
+            font-family:'Jost',sans-serif;font-size:.85rem;font-weight:500;
+            text-decoration:none;
+            transition:all .3s ease;
+            box-shadow:0 2px 12px var(--shadow-sun);
+        }
+        .nav-back:hover{background:var(--gold-pale);border-color:var(--gold);color:var(--sun-deep);transform:translateX(-4px)}
+        .nav-back svg{width:16px;height:16px;flex-shrink:0;}
+
+        /* ══════════ CONTAINER ══════════ */
+        .container{
+            max-width:900px;
+            width:95%;
+            margin:0 auto;
+            padding:40px 20px 80px;
+            position:relative;
+            z-index:1;
+        }
+
+        /* ══════════ HEADER CON IMAGEN ══════════ */
+        .hero{
+            margin-top:30px;
+            margin-bottom:30px;
+            border-radius:24px;
+            overflow:hidden;
+            box-shadow:0 12px 40px var(--shadow-sun);
+            border:1px solid var(--gold-light);
+            background:var(--white);
+            position:relative;
+        }
+
+        .hero-image{
+            position:relative;
+            width:100%;
+            height:420px;
+            overflow:hidden;
+        }
+        .hero-image img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            display:block;
+            transition:transform 8s ease;
+        }
+        .hero-image.loaded img{transform:scale(1.06);}
+        .hero-image::after{
+            content:'';
+            position:absolute;inset:0;
+            background:linear-gradient(to bottom,
+                rgba(0,0,0,0.05) 0%,
+                rgba(0,0,0,0.15) 40%,
+                rgba(45,31,31,0.55) 80%,
+                rgba(45,31,31,0.85) 100%);
+        }
+
+        .hero-overlay{
+            position:absolute;
+            bottom:0;left:0;right:0;
+            padding:40px 44px;
+            z-index:2;
+        }
+        .hero-eyebrow{
+            font-size:.7rem;letter-spacing:.35em;
+            text-transform:uppercase;
+            color:var(--sun-light);
+            font-weight:500;
+            margin-bottom:12px;
+            text-shadow:0 1px 8px rgba(0,0,0,0.4);
+        }
+        .hero-title{
+            font-family:'Cormorant Garamond',serif;
+            font-weight:500;
+            font-size:clamp(2rem,5vw,3rem);
+            line-height:1.1;
+            color:#fff;
+            margin-bottom:10px;
+            text-shadow:0 2px 20px rgba(0,0,0,0.4);
+        }
+        .hero-title em{color:var(--sun-light);font-style:italic;}
+        .hero-subtitle{
+            font-family:'Cormorant Garamond',serif;
+            font-style:italic;
+            font-size:1.1rem;
+            color:rgba(255,255,255,0.85);
+            max-width:520px;
+            text-shadow:0 1px 10px rgba(0,0,0,0.3);
+        }
+
+        /* ══════════ MENSAJE DIRECTO ══════════ */
+        .message-section{
+            margin-top:30px;
+            padding:44px 48px;
+            background:linear-gradient(180deg,var(--paper) 0%,var(--paper-deep) 100%);
+            border:1px solid var(--gold-light);
+            border-radius:24px;
+            box-shadow:0 8px 32px var(--shadow-soft);
+            position:relative;
+            overflow:hidden;
+        }
+        .message-section::before{
+            content:'';
+            position:absolute;top:14px;left:14px;right:14px;bottom:14px;
+            border:1px dashed var(--gold-light);
+            border-radius:16px;pointer-events:none;
+        }
+        .message-watermark{
+            position:absolute;top:50%;left:50%;
+            transform:translate(-50%,-50%);
+            font-size:260px;opacity:0.04;
+            pointer-events:none;z-index:0;line-height:1;
+        }
+
+        .msg-header{text-align:center;margin-bottom:24px;position:relative;z-index:2;}
+        .msg-tag{
+            display:inline-block;
+            padding:6px 16px;border-radius:50px;
+            background:var(--gold-pale);
+            border:1px solid var(--gold-light);
+            color:var(--sun-deep);
+            font-size:.68rem;font-weight:600;
+            letter-spacing:.22em;text-transform:uppercase;
+            margin-bottom:18px;
+        }
+        .msg-title{
+            font-family:'Cormorant Garamond',serif;
+            font-weight:500;font-style:italic;
+            font-size:clamp(1.6rem,3.5vw,2.1rem);
+            color:var(--ink);margin-bottom:8px;
+        }
+        .msg-title em{color:var(--sun-deep);}
+        .msg-date{
+            font-size:.78rem;color:var(--ink-muted);
+            font-style:italic;letter-spacing:.12em;
+        }
+
+        .msg-divider{
+            display:flex;align-items:center;gap:.8rem;
+            justify-content:center;margin:20px 0 28px;
+            position:relative;z-index:2;
+        }
+        .msg-divider::before,.msg-divider::after{
+            content:'';flex:1;max-width:100px;height:1px;
+            background:linear-gradient(90deg,transparent,var(--gold-light),transparent);
+        }
+        .msg-divider span{font-size:1.1rem;color:var(--sun-deep);}
+
+        .msg-body{
+            font-family:'Jost',sans-serif;
+            font-size:1.05rem;font-weight:300;
+            line-height:1.9;color:var(--ink-soft);
+            text-align:justify;
+            max-width:680px;margin:0 auto;
+            position:relative;z-index:2;
+        }
+        .msg-body p{margin-bottom:18px;}
+        .msg-body p:first-of-type::first-letter{
+            font-family:'Cormorant Garamond',serif;
+            font-size:3rem;font-weight:600;font-style:italic;
+            color:var(--sun-deep);
+            float:left;line-height:0.85;
+            padding:6px 10px 0 0;
+            text-shadow:0 2px 8px rgba(201,137,58,0.15);
+        }
+        .msg-body em{color:var(--sun-dark);font-style:italic;font-weight:400;}
+
+        .msg-signature{
+            text-align:right;
+            font-family:'Cormorant Garamond',serif;
+            font-style:italic;font-size:1.35rem;
+            color:var(--sun-deep);
+            margin-top:24px;
+            padding-right:10px;
+            position:relative;z-index:2;
+        }
+        .msg-signature::before{
+            content:'';
+            display:inline-block;
+            width:60px;height:1px;
+            background:var(--gold-light);
+            margin-right:10px;
+            vertical-align:middle;
+        }
+
+        /* ══════════ BOTÓN VER GIRASOL ══════════ */
+        .reveal-section{
+            text-align:center;
+            margin-top:36px;
+            position:relative;z-index:2;
+        }
+        .reveal-btn{
+            display:inline-flex;align-items:center;gap:10px;
+            padding:16px 40px;
+            border:none;
+            font-family:'Jost',sans-serif;font-weight:500;
+            font-size:1rem;letter-spacing:.08em;
+            border-radius:50px;cursor:pointer;
+            background:linear-gradient(135deg,var(--sun) 0%,var(--sun-deep) 100%);
+            color:var(--white);
+            box-shadow:0 6px 24px var(--shadow-sun);
+            transition:all .3s ease;
+            position:relative;overflow:hidden;
+        }
+        .reveal-btn::before{
+            content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+            background:linear-gradient(120deg,transparent,rgba(255,255,255,0.35),transparent);
+            transition:left .6s ease;
+        }
+        .reveal-btn:hover::before{left:100%;}
+        .reveal-btn:hover{transform:translateY(-4px);box-shadow:0 12px 32px var(--shadow-sun);}
+        .reveal-btn:active{transform:translateY(-1px);}
+        .reveal-btn svg{width:20px;height:20px;}
+        .reveal-btn.hidden{display:none;}
+
+        .reveal-hint{
+            margin-top:14px;
+            font-family:'Cormorant Garamond',serif;
+            font-style:italic;
+            font-size:.95rem;
+            color:var(--ink-muted);
+        }
+
+        /* ══════════ CANVAS DEL GIRASOL ══════════ */
+        .draw-section{
+            margin-top:30px;
+            padding:32px;
+            background:var(--white);
+            border:1px solid var(--gold-light);
+            border-radius:24px;
+            box-shadow:0 8px 32px var(--shadow-sun);
+            display:none;
+        }
+        .draw-section.show{
+            display:block;
+            animation:fadeUp 0.7s ease both;
+        }
+        @keyframes fadeUp{
+            0%{opacity:0;transform:translateY(30px);}
+            100%{opacity:1;transform:translateY(0);}
+        }
+
+        .draw-header{text-align:center;margin-bottom:20px;}
+        .draw-eyebrow{
+            font-size:.7rem;letter-spacing:.3em;
+            text-transform:uppercase;
+            color:var(--sun-deep);font-weight:500;
+            margin-bottom:8px;
+        }
+        .draw-title{
+            font-family:'Cormorant Garamond',serif;
+            font-size:1.8rem;font-weight:500;font-style:italic;
+            color:var(--ink);
+        }
+        .draw-title em{color:var(--sun-deep);}
+
+        .draw-controls{
+            display:flex;justify-content:center;gap:14px;
+            margin:20px 0;flex-wrap:wrap;
+        }
+        .btn{
+            font-family:'Jost',sans-serif;font-weight:500;
+            letter-spacing:.06em;padding:11px 26px;
+            border-radius:50px;border:none;cursor:pointer;
+            transition:all .2s ease;font-size:.85rem;
+            position:relative;overflow:hidden;
+        }
+        .btn::before{
+            content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+            background:linear-gradient(120deg,transparent,rgba(255,255,255,0.3),transparent);
+            transition:left .5s ease;
+        }
+        .btn:hover::before{left:100%;}
+        .btn-primary{
+            background:linear-gradient(135deg,var(--sun),var(--sun-deep));
+            color:var(--white);box-shadow:0 4px 14px var(--shadow-sun);
+        }
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px var(--shadow-sun);}
+        .btn-secondary{
+            background:linear-gradient(135deg,var(--gold),var(--gold-light));
+            color:var(--white);box-shadow:0 4px 14px rgba(201,169,110,0.3);
+        }
+        .btn-secondary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,169,110,0.4);}
+        .btn-reset{
+            background:linear-gradient(135deg,var(--ink-soft),var(--ink-muted));
+            color:var(--white);box-shadow:0 4px 14px rgba(107,80,85,0.3);
+        }
+        .btn-reset:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(107,80,85,0.4);}
+        .btn:active{transform:translateY(0);}
+
+        .speed-control{
+            display:flex;align-items:center;gap:15px;
+            margin:14px 0;padding:16px 22px;
+            background:var(--cream);border-radius:15px;
+            border:1px solid var(--gold-light);
+        }
+        .speed-control label{font-weight:500;color:var(--ink-soft);font-size:.9rem;}
+        .speed-control input[type="range"]{
+            flex:1;height:6px;border-radius:3px;
+            background:var(--gold-pale);outline:none;
+            -webkit-appearance:none;appearance:none;
+        }
+        .speed-control input[type="range"]::-webkit-slider-thumb{
+            -webkit-appearance:none;width:18px;height:18px;border-radius:50%;
+            background:var(--sun);cursor:pointer;
+            box-shadow:0 2px 6px var(--shadow-sun);
+        }
+        .speed-control input[type="range"]::-moz-range-thumb{
+            width:18px;height:18px;border-radius:50%;border:none;
+            background:var(--sun);cursor:pointer;
+            box-shadow:0 2px 6px var(--shadow-sun);
+        }
+        .speed-value{color:var(--sun-deep);font-weight:600;font-size:1.05rem;min-width:30px;text-align:center;}
+
+        .status{
+            text-align:center;margin:14px 0;padding:12px 18px;
+            background:var(--cream);border-radius:15px;
+            color:var(--ink-soft);font-weight:500;
+            border:1px solid var(--gold-light);
+            transition:all .4s ease;
+        }
+        .status.completed{
+            background:var(--gold-pale);
+            border-color:var(--sun);
+            color:var(--sun-deep);
+        }
+
+        .canvas-container{
+            display:flex;justify-content:center;margin:16px 0;
+            padding:16px;background:linear-gradient(180deg,#fffefa 0%,#fef9ec 50%,#fdf5e6 100%);
+            border-radius:18px;border:1px solid var(--gold-light);
+            box-shadow:inset 0 0 40px rgba(255,255,255,0.6);
+            position:relative;
+        }
+        .canvas-container::before{
+            content:'';
+            position:absolute;top:10px;left:10px;right:10px;bottom:10px;
+            border:1px dashed var(--gold-light);
+            border-radius:12px;pointer-events:none;
+        }
+        #sunCanvas{
+            border-radius:10px;
+            background:linear-gradient(180deg,#fefdfb 0%,#fdf9f0 100%);
+            display:block;max-width:100%;
+            position:relative;z-index:1;
+        }
+
+        /* ══════════ FOOTER ══════════ */
+        .footer{
+            text-align:center;
+            margin-top:36px;padding:20px;
+            color:var(--ink-muted);
+            font-family:'Jost',sans-serif;
+            font-size:.85rem;
+            position:relative;z-index:10;
+        }
+        .footer strong{color:var(--sun-deep);}
+
+        /* ══════════ RESPONSIVE ══════════ */
+        @media (max-width:768px){
+            .container{padding:30px 15px 80px;}
+            .hero-image{height:300px;}
+            .hero-overlay{padding:28px 24px;}
+            .hero-subtitle{font-size:1rem;}
+            .message-section{padding:32px 24px;margin-top:24px;}
+            .msg-body{font-size:.95rem;line-height:1.8;text-align:left;}
+            .msg-body p:first-of-type::first-letter{font-size:2.4rem;}
+            .msg-signature{font-size:1.15rem;}
+            .draw-section{padding:24px 18px;}
+            .speed-control{flex-direction:row;gap:12px;padding:18px;}
+            #sunCanvas{width:100%;max-width:700px;height:auto;aspect-ratio:4/3;}
+            .reveal-btn{padding:14px 30px;font-size:.9rem;}
+        }
+
+        @media (max-width:480px){
+            .container{padding:15px;margin:25px 5px 5px 5px;}
+            .hero-image{height:240px;}
+            .hero-overlay{padding:22px 18px;}
+            .hero-title{font-size:1.6rem;}
+            .hero-subtitle{font-size:.9rem;}
+            .message-section{padding:26px 18px;}
+            .msg-title{font-size:1.4rem;}
+            .msg-body{font-size:.9rem;}
+            .msg-body p:first-of-type::first-letter{font-size:2rem;}
+            .msg-signature{font-size:1.05rem;}
+            .draw-section{padding:20px 14px;}
+            .btn{min-width:90px;padding:10px 16px;font-size:11px;}
+            #sunCanvas{aspect-ratio:1/1;min-height:280px;}
+            .nav-back{padding:8px 14px;font-size:.78rem;}
+            .reveal-btn{padding:12px 24px;font-size:.85rem;}
+        }
+
+        @media (prefers-reduced-motion:reduce){
+            *,*::before,*::after{
+                animation-duration:0.01ms !important;
+                animation-iteration-count:1 !important;
+                transition-duration:0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo decorativo -->
+    <div class="bg-canvas">
+        <div class="bg-blob blob1"></div>
+        <div class="bg-blob blob2"></div>
+        <div class="bg-blob blob3"></div>
+    </div>
+    <div class="petals-layer" id="petals"></div>
+
+    <!-- Nav back -->
+    <a href="../index.html" class="nav-back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Volver al inicio
+    </a>
+
+    <div class="container">
+        <!-- ════════ HEADER CON IMAGEN ════════ -->
+        <header class="hero">
+            <div class="hero-image" id="heroImage">
+                <img src="Gemini_Generated_Image_y5mt3zy5mt3zy5mt.jpg" alt="Flores amarillas para Tammie" onload="this.parentElement.classList.add('loaded')">
+                <div class="hero-overlay">
+                    <p class="hero-eyebrow">Septiembre · Mes de las Flores Amarillas</p>
+                    <h1 class="hero-title">Flores Amarillas para <em>Tammie</em></h1>
+                    <p class="hero-subtitle">Como el sol que ilumina mis días. Un girasol que florece solo para ti.</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- ════════ MENSAJE DIRECTO ════════ -->
+        <section class="message-section">
+            <div class="message-watermark">🌻</div>
+
+            <div class="msg-header">
+                <span class="msg-tag">Dedicado</span>
+                <h2 class="msg-title">Una Declaración de <em>Amor Eterno</em></h2>
+                <p class="msg-date">Septiembre, 2026</p>
+            </div>
+
+            <div class="msg-divider"><span>✦</span></div>
+
+            <div class="msg-body">
+                <p>Tammie, hay algo que necesito que te quede bien claro hoy y para siempre: <em>nunca más serás una espectadora en tu vida</em>. De ahora en adelante estás en el lugar principal, recibiendo todo el amor, la atención y los apapachos que te mereces.</p>
+
+                <p>La verdad es muy simple y no necesita rodeos: eres la mujer más hermosa que he conocido y te has vuelto mi prioridad absoluta. Sé lo mucho que disfrutas los detalles, cómo se te ilumina la cara cuando te consienten y lo bonito que se siente saberse amada; por eso, <em>este detalle en septiembre no es solo un gesto lindo, es mi promesa</em> de que voy a hacer todo lo que esté en mis manos para que siempre te sientas así a mi lado.</p>
+
+                <p>Me voy a encargar, con hechos y no solo con palabras, de que jamás dudes de lo mucho que te amo. Quiero estar contigo en las rutinas, en las pláticas, en las fechas especiales y en la vida real, demostrándote constantemente que mi lugar es contigo. No te ofrezco promesas vacías, te ofrezco <em>un amor real, constante y dedicado a hacerte sentir la mujer más consentida del mundo</em>.</p>
+
+                <p>Estar a tu lado es lo mejor que me ha pasado. Gracias por dejarme formar parte de tu vida y por permitirme ser quien te cuide y te llene de detalles.</p>
+            </div>
+
+            <div class="msg-signature">
+                Siempre tuyo,<br>
+                Eduardo Aispuro 💛
+            </div>
+        </section>
+
+        <!-- ════════ BOTÓN VER GIRASOL ════════ -->
+        <div class="reveal-section">
+            <button class="reveal-btn" id="revealBtn" onclick="revealSunflower()">
+                Ver Girasol
+            </button>
+            <p class="reveal-hint">Haz clic para ver tu girasol dibujarse en pantalla ✦</p>
+        </div>
+
+        <!-- ════════ CANVAS DEL GIRASOL ════════ -->
+        <section class="draw-section" id="drawSection">
+            <div class="draw-header">
+                <p class="draw-eyebrow">Dibujado con coordenadas</p>
+                <h2 class="draw-title">Tu <em>Girasol</em> 🌻</h2>
+            </div>
+
+            <div class="status" id="status">Cargando girasol...</div>
+
+            <div class="canvas-container">
+                <canvas id="sunCanvas" width="800" height="600"></canvas>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        Para Tammie — <strong>Eduardo Aispuro</strong>
+    </div>
+
+    <script>
+        // ══════════ Pétalos de fondo ══════════
+        (function initPetals(){
+            const layer = document.getElementById('petals');
+            if(!layer) return;
+            const shapes = ['🌻','🌼','💛','✨','🌸'];
+            const count = window.innerWidth < 600 ? 10 : 20;
+            for(let i=0;i<count;i++){
+                const p = document.createElement('div');
+                p.className = 'petal';
+                p.textContent = shapes[Math.floor(Math.random()*shapes.length)];
+                p.style.left = Math.random()*100 + 'vw';
+                p.style.fontSize = (10+Math.random()*12) + 'px';
+                p.style.animationDuration = (14+Math.random()*18) + 's';
+                p.style.animationDelay = (Math.random()*-20) + 's';
+                layer.appendChild(p);
+            }
+        })();
+
+        // ══════════ Reveal del girasol ══════════
+        let revealed = false;
+        function revealSunflower(){
+            if(revealed) return;
+            revealed = true;
+            const btn = document.getElementById('revealBtn');
+            const section = document.getElementById('drawSection');
+            btn.classList.add('hidden');
+            section.classList.add('show');
+            // Scroll suave hacia la sección
+            setTimeout(() => {
+                section.scrollIntoView({behavior:'smooth', block:'center'});
+                // Auto-iniciar el dibujo
+                setTimeout(() => startDrawing(), 600);
+            }, 100);
+        }
+
+        // ══════════ Dibujo del girasol (canvas) ══════════
+        const canvas = document.getElementById('sunCanvas');
+        const ctx = canvas.getContext('2d');
+        const statusEl = document.getElementById('status');
+
+        // Velocidad estándar fija (ms entre regiones)
+        const DRAW_DELAY = 20;
+
+        let regionsData = null;
+        let bounds = null;
+        let drawingActive = false;
+        let currentRegion = 0;
+        let drawTimer = null;
+
+        function clearCanvas(){
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(255,255,255,0.02)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function calcBounds(regions){
+            let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity;
+            for(const r of regions){
+                for(const pt of r.contour){
+                    minX=Math.min(minX,pt[0]);maxX=Math.max(maxX,pt[0]);
+                    minY=Math.min(minY,pt[1]);maxY=Math.max(maxY,pt[1]);
+                }
+            }
+            const w=maxX-minX, h=maxY-minY;
+            const scale=Math.min(540/w, 540/h);
+            const cx=(minX+maxX)/2, cy=(minY+maxY)/2;
+            return {scale, cx, cy, ox:canvas.width/2, oy:canvas.height/2};
+        }
+
+        async function loadData(){
+            try{
+                statusEl.textContent = 'Cargando girasol...';
+                const response = await fetch('resources/sunflowers.json');
+                const regions = await response.json();
+                regionsData = regions;
+                bounds = calcBounds(regions);
+                statusEl.textContent = 'Listo para dibujar para ti, Tammie';
+                return true;
+            }catch(err){
+                statusEl.textContent = 'Error: ' + err.message;
+                console.error(err);
+                return false;
+            }
+        }
+
+        function drawNext(){
+            if(!drawingActive || !regionsData || !bounds) return;
+
+            if(currentRegion >= regionsData.length){
+                drawingActive = false;
+                statusEl.textContent = 'Listo, Tammie 💛';
+                statusEl.classList.add('completed');
+                return;
+            }
+
+            const region = regionsData[currentRegion];
+            const color = `rgb(${Math.round(region.color[0])},${Math.round(region.color[1])},${Math.round(region.color[2])})`;
+            ctx.fillStyle = color;
+            ctx.beginPath();
+            const pts = region.contour;
+            let x = (pts[0][0]-bounds.cx)*bounds.scale + bounds.ox;
+            let y = (pts[0][1]-bounds.cy)*bounds.scale + bounds.oy;
+            ctx.moveTo(x, y);
+            for(let j=1;j<pts.length;j++){
+                x = (pts[j][0]-bounds.cx)*bounds.scale + bounds.ox;
+                y = (pts[j][1]-bounds.cy)*bounds.scale + bounds.oy;
+                ctx.lineTo(x, y);
+            }
+            ctx.closePath();
+            ctx.fill();
+
+            currentRegion++;
+            const progress = Math.round((currentRegion / regionsData.length) * 100);
+            statusEl.textContent = `Dibujando para ti, Tammie... ${progress}%`;
+
+            if(drawingActive){
+                drawTimer = setTimeout(drawNext, DRAW_DELAY);
+            }
+        }
+
+        async function startDrawing(){
+            if(!regionsData){
+                const ok = await loadData();
+                if(!ok) return;
+            }
+            if(drawTimer) clearTimeout(drawTimer);
+            drawingActive = true;
+            currentRegion = 0;
+            statusEl.classList.remove('completed');
+            clearCanvas();
+            statusEl.textContent = `Dibujando tu girasol, Tammie...`;
+            drawNext();
+        }
+
+        // Exponer función
+        window.revealSunflower = revealSunflower;
+
+        // Pre-cargar datos al abrir la página
+        clearCanvas();
+        loadData();
+    </script>
+</body>
+</html>
