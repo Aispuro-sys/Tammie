@@ -757,24 +757,24 @@
         if(e.isIntersecting){ 
           e.target.classList.add('visible'); 
           io.unobserve(e.target); 
-
-/* Audio autoplay workaround */
-(function(){
-  var audio = document.getElementById('bgMusic');
-  if(!audio) return;
-  audio.volume = 0.35;
-  var playAttempt = function(){
-    audio.play().catch(function(){});
-  };
-  playAttempt();
-  document.addEventListener('click', playAttempt, { once: false });
-  document.addEventListener('touchstart', playAttempt, { once: false });
-  document.addEventListener('keydown', playAttempt, { once: false });
-})();
         }
       });
     }, { threshold: 0.1 }); 
     els.forEach(el => io.observe(el));
+  })();
+
+  /* Audio autoplay workaround */
+  (function(){
+    var audio = document.getElementById('bgMusic');
+    if(!audio) return;
+    audio.volume = 0.15;
+    var playAttempt = function(){
+      audio.play().catch(function(){});
+    };
+    playAttempt();
+    document.addEventListener('click', playAttempt, { once: false });
+    document.addEventListener('touchstart', playAttempt, { once: false });
+    document.addEventListener('keydown', playAttempt, { once: false });
   })();
 </script>
 
